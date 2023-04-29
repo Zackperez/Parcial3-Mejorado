@@ -80,13 +80,15 @@ button{
     display: grid;
     align-items: center;
     justify-items: center;
+    margin: 0vw 15vw;
 }
 
 .principal-grilla{
     display: grid;
     grid-template-areas: 
-    "informacion tarjetas";
-    column-gap: 2vw;
+    "informacion" 
+    "tarjetas";
+    row-gap: 2vw;
     padding: 5vw 0vw;
 }
 
@@ -101,9 +103,9 @@ button{
 .principal-grilla .tarjetas {
     grid-area: tarjetas;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    column-gap: 1vw;
     row-gap: 2vh;
 }
 
@@ -128,13 +130,11 @@ button{
 }
 
 .principal-grilla .tarjetas .tarjeta {
-    border: 1px solid black;
     height: 30vh;
     width: 30vw;
     padding: 1vw 2vw;
-    background-color: #191919;
+    background-color: var(--negro);
     color: rgb(218, 218, 219);
-    border-radius: 0.5vw;
 }
 
 .principal-grilla .tarjetas .tarjeta .tarjeta__subtitulo {

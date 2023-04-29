@@ -76,7 +76,6 @@ button{
 }
 
 /* CONTENIDO PRINCIPAL */
-
 .pagina-principal{
     grid-area: pagina-principal;
     margin-top: 5vh;
