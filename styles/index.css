@@ -1,0 +1,159 @@
+@import url(global/global.css);
+
+a{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.hero{
+    display: grid;
+    grid-template-areas: 
+    "menu"
+    "pagina-principal"
+    "footer";
+    grid-template-rows: auto 80vh auto;
+}
+.pagina-principal{
+    grid-area: pagina-principal;
+    display: grid;
+    margin: 10vh 10vw;
+}
+
+.principal-grilla{
+    display: grid;
+    grid-template-areas: 
+    "textos video"
+    "botones video";
+    align-items: center;
+    grid-template-columns: auto;
+}
+
+.principal-botones{
+    grid-area: botones;
+    display: flex;
+    column-gap: 1vw;
+}
+
+.principal-texto {
+    grid-area: textos;
+    display: flex;
+    flex-direction: column;
+}
+
+.principal__texto{
+    width: 40vw;
+    text-align: justify;
+    margin: 2vh;
+}
+.principal-botones a{
+    text-align: center;
+    width: 9.5vw;
+    padding: 0.7vw 2.5vw;
+    background: pink;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--negro);
+}
+.principal-botones a:hover{
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.principal-video{
+    grid-area: video;
+    display: flex;
+}
+
+.principal__video{ 
+    width: 30vw;
+    height: 40vh;
+}
+
+/* CONTENIDO MENU */
+
+.menu {
+    grid-area: menu;
+    display: grid;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.menu-contenedor {
+    display: grid;
+    grid-template-areas:
+        "titulo enlaces";
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.menu-titulo {
+    grid-area: titulo;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+
+.menu-lista {
+    grid-area: enlaces;
+}
+
+.menu-contenedor .menu-lista {
+    display: flex;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a {
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a:hover{
+    color: var(--pink);
+}
+
+
+.menu__item--active a {
+    font-weight: bold;
+    border-bottom: 1px solid var(--blanco);
+}
+
+
+/* CONTENIDO REDES */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.contenido-redes {
+    padding: 0 5vw;
+    display: grid;
+    justify-items: center;
+    row-gap: 1vw;
+}
+
+.redes-texto p {
+    color: var(--blanco);
+    font-size: 0.9vw;
+}
+
+.redes-texto a {
+    color: var(--blanco);
+}

@@ -1,0 +1,196 @@
+@import url(global/global.css);
+
+a{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+body {
+    background-color: var(--blanco);
+}
+
+.hero{
+    display: grid;
+    grid-template-areas: 
+    "menu"
+    "formulario"
+    "footer";
+    grid-template-rows: auto 80vh auto;
+}
+
+/* CONTENIDO MENU */
+
+.menu {
+    grid-area: menu;
+    display: grid;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.menu-contenedor {
+    display: grid;
+    grid-template-areas:
+        "titulo enlaces";
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.menu-titulo {
+    grid-area: titulo;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+
+.menu-lista {
+    grid-area: enlaces;
+}
+
+.menu-contenedor .menu-lista {
+    display: flex;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a {
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a:hover{
+    color: var(--pink);
+}
+
+.menu__item--active a {
+    font-weight: bold;
+    border-bottom: 1px solid var(--blanco);
+}
+
+/* CONTENIDO FORMULARIO */
+
+.formulario {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.formulario .formulario-grilla {
+    display: grid;
+    grid-template-areas: "informacion contenido";
+    grid-template-columns: 30vw auto;
+    column-gap: 2vw;
+    height: auto;
+    width: 70vw;
+    padding: 2vw;
+    /*
+    background-color: rgb(218, 218, 219);
+    border: 1px solid black;
+*/
+    color: var(--negro);
+    border-radius: 0.5vw;
+}
+
+.formulario-grilla .informacion {
+    grid-area: informacion;
+    display: grid;
+    height: 20vh;
+}
+
+.formulario-grilla .informacion .informacion__descripcion{
+    font-size: 1.3vw;
+}
+
+
+.formulario .formulario-grilla .tarjeta {
+    grid-area: contenido;
+    display: grid;
+    grid-template-areas:
+        "entradas"
+        "boton";
+    row-gap: 2vh;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas {
+    grid-area: entradas;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas input {
+    height: 3vh;
+    background-color: var(--blanco);
+    border: transparent;
+    border-bottom: 1px solid #191919;
+    font-size: 1.3vw;
+    margin-bottom: 1vh;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas input:focus{
+    outline: none;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas textarea {
+    height: 3vh;
+    background-color: var(--blanco);
+    border: transparent;
+    border-bottom: 1px solid #191919;
+    font-size: 1.3vw;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas textarea:focus{
+    outline: none;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-boton {
+    display: grid;
+    justify-content: end;
+    grid-area: boton;
+}
+
+.formulario .formulario-grilla .tarjeta .tarjeta-boton a {
+    color: var(--blanco);
+    padding: 0.5vw 3vw;
+    background-color: var(--grisClaro);
+}
+
+/* CONTENIDO REDES */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.contenido-redes {
+    padding: 0 5vw;
+    display: grid;
+    justify-items: center;
+    row-gap: 1vw;
+}
+
+.redes-texto p {
+    color: var(--blanco);
+    font-size: 0.9vw;
+}
+
+.redes-texto a {
+    color: var(--blanco);
+}

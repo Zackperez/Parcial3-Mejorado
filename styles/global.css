@@ -1,0 +1,34 @@
+@import url(normalice.css);
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+}
+
+/* :root{
+    --blanco: #FBF9FF;
+    --negro: #121212;
+    --negroOscuro: #323133;
+    --negroClaro: #3C3B3D;
+    --grisOscuro: #808080;
+    --grisClaro: #B3B3B3;
+    --rojoOscuro: #BF263C;
+    --rojoClaro:#D8334A;
+    --moradoOscuro: #6450A7;
+    --moradoClaro: #8067b7;
+    --celesteOscuro: #7DB1B1;
+    --celesteClaro: #A0CECB;
+
+}
+*/
+
+:root{
+    /*--blanco: rgb(255, 255, 255);*/
+    --blanco: #faf6f1;
+    --negro: rgb(30, 30, 30);
+    --grisClaro: rgb(108, 108, 108);
+}
+

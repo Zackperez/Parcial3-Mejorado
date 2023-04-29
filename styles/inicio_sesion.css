@@ -1,0 +1,79 @@
+@import url(global/global.css);
+
+body{
+    color: var(--blanco);
+}
+
+.pagina-grilla {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 100vh;
+    align-items: center;
+}
+
+.contenedor-formulario {
+    display: grid;
+    grid-template-areas:
+        "imagen"
+        "titulo"
+        "entradas"
+        "boton";
+    row-gap: 2vh;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--negro);
+    padding: 5vw;
+    border-radius: 3%;
+
+}
+
+.formulario-imagen {
+    display: grid;
+    grid-area: imagen;
+    justify-content: center;
+}
+
+.formulario__imagen {
+    height: 20vh;
+    width: auto;
+    border-radius: 50%;
+}
+
+.formulario-titulo {
+    grid-area: titulo;
+}
+
+.formulario-entradas {
+    display: flex;
+    text-align: start;
+    grid-area: entradas;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+
+.formulario-entradas input {
+    padding: 0 1vw;
+    width: 25vw;
+    height: 7vh;
+    /* border: transparent; */
+}
+
+.formulario-boton {
+    grid-area: boton;
+    text-align: center;
+}
+
+.formulario-boton .formulario__boton {
+    height: 7vh;
+    width: 20vw;
+    background-color: pink;
+    border: transparent;
+    border-radius: 5%;
+}
+
+.formulario-boton .formulario__boton a {
+    font-weight: bold;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+    color: var(--negro);
+}

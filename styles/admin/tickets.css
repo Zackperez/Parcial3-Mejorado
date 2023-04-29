@@ -1,0 +1,164 @@
+@import url(../global/global.css);
+
+a{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.hero {
+    display: grid;
+    grid-template-areas:
+        "menu"
+        "pagina-principal"
+        "footer";
+    grid-template-rows: auto 90vh auto;
+}
+
+.menu {
+    grid-area: menu;
+    display: grid;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.menu-contenedor {
+    display: grid;
+    grid-template-areas:
+        "titulo enlaces";
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.menu-titulo {
+    grid-area: titulo;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+
+.menu-lista {
+    grid-area: enlaces;
+}
+
+.menu-contenedor .menu-lista {
+    display: flex;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item {
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a {
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a:hover{
+    color: var(--pink);
+}
+
+.menu__item--active a {
+    font-weight: bold;
+    border-bottom: 1px solid var(--blanco);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.pagina-principal{
+    grid-area: pagina-principal;
+    margin-top: 5vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 5vh;
+}
+
+.principal-grilla{
+    display: grid;
+    grid-template-areas: 
+    "titulo"
+    "tickets";
+    justify-content: center;
+}
+
+.tickets-grilla{
+    height: 65vh;
+    overflow-y: auto;
+    display: grid;
+    row-gap: 2vh;
+    width: 65vw;
+}
+
+.ticket{
+    display: grid;
+    grid-template-areas: 
+    "titulo hora"
+    "descripcion descripcion"
+    "usuario usuario";
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5vw;
+    width: auto;
+    height: 20vh;
+    padding: 1vw 2vw;
+    color: var(--negro);
+    align-items: center;
+}
+
+.ticket-titulo{
+    grid-area: titulo;
+    text-align: start;
+}
+
+.ticket-hora{
+    display: grid;
+    justify-content: end;
+    grid-area: hora;
+}
+
+.ticket-descripcion{
+    width: 60vw;
+    grid-area: descripcion;
+}
+
+.ticket-hora{
+    grid-area: hora;
+}
+
+
+/* CONTENIDO REDES */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.contenido-redes {
+    padding: 0 5vw;
+    display: grid;
+    justify-items: center;
+    row-gap: 1vw;
+}
+
+.redes-texto p {
+    color: var(--blanco);
+    font-size: 0.9vw;
+}
+
+.redes-texto a {
+    color: var(--blanco);
+}
