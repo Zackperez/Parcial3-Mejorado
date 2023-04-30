@@ -42,8 +42,22 @@ const Vista = {
   },
 
   mostrarAlertaSatisfactorio(mensaje){
-    alert(mensaje)
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    })
   },
+
+  vaciarCampos(){
+    document.getElementById('nombre').value = "";
+    document.getElementById('apellido').value = "";
+    document.getElementById('correo').value = "";
+    document.getElementById('titulo').value = "";
+    document.getElementById('descripcion').value = "";
+  }
 
 }
 
@@ -57,11 +71,12 @@ const Controlador = {
       //dentro de "res" se almacena el resultado de AXIOS.
       //Si el status en correcto, se muestra un alert
       if (res.status == "201") {
-        Vista.mostrarAlertaSatisfactorio("Ticket enviado")
+        Vista.mostrarAlertaSatisfactorio("Ticket enviado");
+        Vista.vaciarCampos();
       }
       //Caso contrario, mostrará un mensaje de error que se envia a la vista para mostrarla
     } catch (err) {
-      Vista.mostrarMensajeError('Error al enviar ticket');
+      Vista.mostrarMensajeError(err);
     }
   }
 }

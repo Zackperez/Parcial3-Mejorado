@@ -80,7 +80,7 @@ button{
     display: grid;
     align-items: center;
     justify-items: center;
-    margin: 0vw 15vw;
+    margin: 0vw 10vw;
 }
 
 .principal-grilla{
@@ -107,6 +107,7 @@ button{
     align-items: center;
     column-gap: 1vw;
     row-gap: 2vh;
+    justify-content: center;
 }
 
 .principal-grilla .tarjetas .tarjeta {
@@ -139,7 +140,7 @@ button{
 
 .principal-grilla .tarjetas .tarjeta .tarjeta__subtitulo {
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
 
 .principal-grilla .tarjetas .tarjeta .tarjeta-boton {

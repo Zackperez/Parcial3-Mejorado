@@ -21,12 +21,10 @@ const Vista = {
   },
 
   mostrarMensajeError(mensaje) {
-    alert(mensaje)
     console.log(mensaje);
   },
 
   mostrarMensajeSatisfactorio(mensaje) {
-    alert(mensaje)
     console.log(mensaje);
   },
 

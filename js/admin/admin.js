@@ -105,7 +105,26 @@ if(localStorage.getItem("access_token")){
 const cerrarSesion = document.getElementById ("cerrarSesion");
 
 cerrarSesion.onclick = function (){
-    localStorage.removeItem('access_token');
-    alert("Has cerrado sesión");
-    location.href = "../../index.html";
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: '¿Cerrar sesión?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Cerrar sesión',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem('access_token');
+          //alert("Has cerrado sesión");
+          location.href = "../../index.html";
+        }
+      })
 }
