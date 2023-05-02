@@ -52,11 +52,11 @@ const Vista = {
   },
 
   vaciarCampos(){
-    document.getElementById('nombre').value = "";
-    document.getElementById('apellido').value = "";
-    document.getElementById('correo').value = "";
-    document.getElementById('titulo').value = "";
-    document.getElementById('descripcion').value = "";
+    nombre.value = "";
+    apellido.value = "";
+    correo.value = "";
+    titulo.value = "";
+    descripcion.value = "";
   }
 
 }

@@ -21,11 +21,21 @@ const Vista = {
   },
 
   mostrarMensajeError(mensaje) {
-    console.log(mensaje);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: mensaje,
+      footer: '<p>verifica si el servidor está activo</p>'
+    })
   },
 
   mostrarMensajeSatisfactorio(mensaje) {
     console.log(mensaje);
+  },
+
+  limpiarCampos(){
+    username.value = "";
+    password.value = "";
   },
 
   redirigirAIndex() {
@@ -47,6 +57,7 @@ const Controlador = {
       }
     } catch (err) {
       Vista.mostrarMensajeError('Error al iniciar sesión');
+      Vista.limpiarCampos();
     }
   }
 }

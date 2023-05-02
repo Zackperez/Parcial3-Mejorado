@@ -164,9 +164,9 @@ body {
 }
 
 .formulario .formulario-grilla .tarjeta .tarjeta-boton a {
-    color: var(--blanco);
+    color: var(--negro);
     padding: 0.5vw 3vw;
-    background-color: var(--grisClaro);
+    background-color: var(--pink);
 }
 
 /* CONTENIDO REDES */

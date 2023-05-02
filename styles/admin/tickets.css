@@ -100,6 +100,16 @@ button{
     width: 65vw;
 }
 
+.tickets-grilla::-webkit-scrollbar {
+    width: 10px;
+    background-color:var(--pink);
+    /* Tamaño del scroll en horizontal */
+}
+
+.tickets-grilla::-webkit-scrollbar-thumb {
+    background-color: #191919;
+}
+
 .ticket{
     display: grid;
     grid-template-areas: 
