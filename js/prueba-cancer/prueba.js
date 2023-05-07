@@ -1,33 +1,24 @@
-const edad = document.getElementById('edad');
-const menopausia = document.getElementById('menopausia');
-const tumorTamaño = document.getElementById('tumorTamaño');
-const invNodes = document.getElementById('invNodes');
-const nodesCaps = document.getElementById('nodesCaps');
-const gradoTumor = document.getElementById('gradoTumor');
-const breast = document.getElementById('breast');
-const breastQuead = document.getElementById('breastQuead');
-const irradiat = document.getElementById('irradiat');
+import config from '../supabase/keys.js';
 
+
+
+/*
 const enviarDatos = document.getElementById('enviarDatos')
 
 enviarDatos.onclick = function(){
   const datos_insertar = {
-    edad : edad.value,
-    menopausia : menopausia.value,
-    tumorTamaño : tumorTamaño.value,
-    invNodes : invNodes.value,
-    nodesCaps : nodesCaps.value,
-    gradoTumor : gradoTumor.value,
-    breast : breast.value,
-    breastQuead : breastQuead.value,
-    irradiat : irradiat.value
+    edad : parseInt(edad.value),
+    menopausia : parseInt(menopausia.value),
+    tumorTamaño : parseInt(tumorTamaño.value),
+    invNodes : parseInt(invNodes.value),
+    nodesCaps : parseInt(nodesCaps.value),
+    gradoTumor : parseInt(gradoTumor.value),
+    breast : parseInt(breast.value),
+    breastQuead : parseInt(breastQuead.value),
+    irradiat : parseInt(irradiat.value)
   }
 
   console.log(datos_insertar);
-}
-
-/*
-function insertar_datos_paciente(){
   axios({
     method: "POST",
     url: "http://127.0.0.1:4000/insertar_datos_paciente/",
@@ -35,6 +26,103 @@ function insertar_datos_paciente(){
   })
   .then(res =>
     console.log(res))
+    console.log(res.data)
   .catch(err => console.log('Error:', err))
+}*/
+
+//Modelo que recibe los datos y los envia a la base de datos
+const Modelo = {
+  //función asíncrona que recibe la data a enviar
+  async enviarDatosPruebaUsuario( edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat ) {
+    //se guarda en un objeto para luego ser enviado como data en AXIOS
+    const datos_insertar = {
+      edad : parseInt(edad),
+      menopausia : parseInt(menopausia),
+      tumorTamaño : parseInt(tumorTamaño),
+      invNodes : parseInt(invNodes),
+      nodesCaps : parseInt(nodesCaps),
+      gradoTumor : parseInt(gradoTumor),
+      breast : parseInt(breast),
+      breastQuead : parseInt(breastQuead),
+      irradiat : parseInt(irradiat)
+    }
+
+    //se almacena la respuesta en "res" para obtener el resultado de la petición y retornarla para mostrar en la vista
+    const res = axios({
+      method: "POST",
+      url: "http://127.0.0.1:4000/insertar_datos_paciente/",
+      data: datos_insertar,
+    });
+    return res
+  }
 }
-*/
+
+const Vista = {
+  //Método de la vista que recibe los valores que hay en el DOM y los retorna
+  getInfoPruebaUsuario() {
+    const edad = document.getElementById('edad').value;
+    const menopausia = document.getElementById('menopausia').value;
+    const tumorTamaño = document.getElementById('tumorTamaño').value;
+    const invNodes = document.getElementById('invNodes').value;
+    const nodesCaps = document.getElementById('nodesCaps').value;
+    const gradoTumor = document.getElementById('gradoTumor').value;
+    const breast = document.getElementById('breast').value;
+    const breastQuead = document.getElementById('breastQuead').value;
+    const irradiat = document.getElementById('irradiat').value;
+    return { edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat };
+  },
+
+  //Método para mostrar los mensajes de errores
+  mostrarMensajeError(mensaje) {
+    alert(mensaje)
+  },
+
+  mostrarAlertaSatisfactorio(mensaje){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  },
+
+  vaciarCampos(){
+    nombre.value = "";
+    apellido.value = "";
+    correo.value = "";
+    titulo.value = "";
+    descripcion.value = "";
+  }
+
+}
+
+const Controlador = {
+  async enviarDatosPruebaUsuario() {
+    const { edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat } = Vista.getInfoPruebaUsuario();
+
+    try {
+      //Se envian los datos al modelo y se espera hasta que se ejecute (el modelo) y retorne un resultado
+      const res = await Modelo.enviarDatosPruebaUsuario(edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat);
+      //dentro de "res" se almacena el resultado de AXIOS.
+      //Si el status en correcto, se muestra un alert
+      if(res.status == "200"){
+        const resultadoModificar = res.data.informacion
+        let resultadoLimpiar1 = resultadoModificar.replace("[","");
+        let resultadoPrueba = resultadoLimpiar1.replace("]","");
+        if (resultadoPrueba == "0"){
+          alert("Resultados de la prueba: No hay eventos recurrentes.")
+        }
+      }
+      //Caso contrario, mostrará un mensaje de error que se envia a la vista para mostrarla
+    } catch (err) {
+      Vista.mostrarMensajeError(err);
+    }
+  }
+}
+
+const enviarDatos = document.getElementById('enviarDatos')
+
+enviarDatos.onclick = function(){
+  Controlador.enviarDatosPruebaUsuario();
+}

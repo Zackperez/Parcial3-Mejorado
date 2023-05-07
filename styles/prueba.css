@@ -23,18 +23,25 @@ h3{
     grid-template-rows: auto 80vh auto;
 }
 .pagina-principal{
+    grid-area: pagina-principal;
     margin-top: 8vh;
     margin-left: 10vw;
     margin-right: 10vw;
-    margin-bottom: 5vh;
-   
+    margin-bottom: 5vh; 
 }
-.principal-grilla{
-    display: grid;
-    grid-template-areas: 
-    "imagen textos";
-    grid-template-columns: auto;
-    column-gap: 2vw;
+
+
+.principal-grilla .container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 2vh;
+}
+
+
+.principal-grilla .container select{
+    width: 20vw;
+    height: 5vh;
 }
 
 /* CONTENIDO MENU */
@@ -66,13 +73,7 @@ h3{
     cursor: pointer;
 }
 
-.pagina-principal{
-    grid-area: pagina-principal;
-    margin-top: 5vh;
-    margin-right: 10vw;
-    margin-left: 10vw;
-    margin-bottom: 5vh;
-}
+
 
 
 
