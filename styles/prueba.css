@@ -1,0 +1,103 @@
+@import url(global/global.css);
+
+
+h3{
+    font-size: 1.5vw;
+}
+
+.container a {
+    color: var(--negro);
+    padding: 0.5vw 3vw;
+    background-color: var(--pink);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.hero{
+    display: grid;
+    grid-template-areas: 
+    "menu"
+    "pagina-principal"
+    "footer";
+    grid-template-rows: auto 80vh auto;
+}
+.pagina-principal{
+    margin-top: 8vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 5vh;
+   
+}
+.principal-grilla{
+    display: grid;
+    grid-template-areas: 
+    "imagen textos";
+    grid-template-columns: auto;
+    column-gap: 2vw;
+}
+
+/* CONTENIDO MENU */
+
+.menu {
+    display: grid;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.menu-contenedor {
+    display: grid;
+    grid-template-areas:
+        "titulo enlaces";
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.menu-titulo {
+    grid-area: titulo;
+}
+
+.menu-contenedor .menu-titulo .menu__titulo a{
+    font-size: 1.8vw;
+    font-weight: bold;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+.pagina-principal{
+    grid-area: pagina-principal;
+    margin-top: 5vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 5vh;
+}
+
+
+
+/* CONTENIDO REDES */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--negro);
+}
+
+.contenido-redes {
+    padding: 0 5vw;
+    display: grid;
+    justify-items: center;
+    row-gap: 1vw;
+}
+
+.redes-texto p {
+    color: var(--blanco);
+    font-size: 0.9vw;
+}
+
+.redes-texto a {
+    color: var(--blanco);
+}
