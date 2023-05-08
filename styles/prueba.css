@@ -1,11 +1,53 @@
 @import url(global/global.css);
 
 
-h3{
+h3 {
     font-size: 1.5vw;
 }
 
-.container a {
+
+.hero {
+    display: grid;
+    grid-template-areas:
+        "menu"
+        "pagina-principal";
+    grid-template-rows: auto 90vh;
+}
+
+.pagina-principal {
+    grid-area: pagina-principal;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: grid;
+    align-items: center;
+}
+
+
+.principal-grilla .container {
+    display: grid;
+    grid-template-areas: 
+    "izquierda derecha";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+}
+
+.principal-grilla .container .izquierda{
+    grid-area: izquierda;
+}
+
+.principal-grilla .container .izquierda .izquierda-grilla{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 3vh;
+    column-gap: 2vw;
+    height: 50vh;
+}
+
+.principal-grilla .container .derecha{
+    grid-area: derecha;
+}
+
+.principal-grilla .container a {
     color: var(--negro);
     padding: 0.5vw 3vw;
     background-color: var(--pink);
@@ -13,36 +55,13 @@ h3{
     cursor: pointer;
 }
 
-
-.hero{
-    display: grid;
-    grid-template-areas: 
-    "menu"
-    "pagina-principal"
-    "footer";
-    grid-template-rows: auto 80vh auto;
-}
-.pagina-principal{
-    grid-area: pagina-principal;
-    margin-top: 8vh;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    margin-bottom: 5vh; 
-}
-
-
-.principal-grilla .container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    row-gap: 2vh;
-}
-
-
-.principal-grilla .container select{
+.principal-grilla .container select {
     width: 20vw;
     height: 5vh;
+    border: transparent;
 }
+
+
 
 /* CONTENIDO MENU */
 
@@ -66,39 +85,9 @@ h3{
     grid-area: titulo;
 }
 
-.menu-contenedor .menu-titulo .menu__titulo a{
+.menu-contenedor .menu-titulo .menu__titulo a {
     font-size: 1.8vw;
     font-weight: bold;
     color: var(--blanco);
     cursor: pointer;
-}
-
-
-
-
-
-/* CONTENIDO REDES */
-
-.footer {
-    grid-area: footer;
-    display: grid;
-    align-items: center;
-    height: 10vh;
-    background-color: var(--negro);
-}
-
-.contenido-redes {
-    padding: 0 5vw;
-    display: grid;
-    justify-items: center;
-    row-gap: 1vw;
-}
-
-.redes-texto p {
-    color: var(--blanco);
-    font-size: 0.9vw;
-}
-
-.redes-texto a {
-    color: var(--blanco);
 }

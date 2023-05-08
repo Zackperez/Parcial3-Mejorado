@@ -15,7 +15,7 @@ button{
     "menu"
     "pagina-principal"
     "footer";
-    grid-template-rows: auto;
+    grid-template-rows: auto 80vh;
 }
 .pagina-principal{
     grid-area: pagina-principal;

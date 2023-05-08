@@ -1,35 +1,3 @@
-import config from '../supabase/keys.js';
-
-
-
-/*
-const enviarDatos = document.getElementById('enviarDatos')
-
-enviarDatos.onclick = function(){
-  const datos_insertar = {
-    edad : parseInt(edad.value),
-    menopausia : parseInt(menopausia.value),
-    tumorTamaño : parseInt(tumorTamaño.value),
-    invNodes : parseInt(invNodes.value),
-    nodesCaps : parseInt(nodesCaps.value),
-    gradoTumor : parseInt(gradoTumor.value),
-    breast : parseInt(breast.value),
-    breastQuead : parseInt(breastQuead.value),
-    irradiat : parseInt(irradiat.value)
-  }
-
-  console.log(datos_insertar);
-  axios({
-    method: "POST",
-    url: "http://127.0.0.1:4000/insertar_datos_paciente/",
-    data: datos_insertar,
-  })
-  .then(res =>
-    console.log(res))
-    console.log(res.data)
-  .catch(err => console.log('Error:', err))
-}*/
-
 //Modelo que recibe los datos y los envia a la base de datos
 const Modelo = {
   //función asíncrona que recibe la data a enviar
@@ -74,7 +42,11 @@ const Vista = {
 
   //Método para mostrar los mensajes de errores
   mostrarMensajeError(mensaje) {
-    alert(mensaje)
+    console.log(mensaje);
+  },
+
+  mostrarResultadoPrueba(mensaje) {
+    console.log(mensaje);
   },
 
   mostrarAlertaSatisfactorio(mensaje){
@@ -85,14 +57,6 @@ const Vista = {
       showConfirmButton: false,
       timer: 1500
     })
-  },
-
-  vaciarCampos(){
-    nombre.value = "";
-    apellido.value = "";
-    correo.value = "";
-    titulo.value = "";
-    descripcion.value = "";
   }
 
 }
@@ -106,12 +70,14 @@ const Controlador = {
       const res = await Modelo.enviarDatosPruebaUsuario(edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat);
       //dentro de "res" se almacena el resultado de AXIOS.
       //Si el status en correcto, se muestra un alert
+      console.log(res)
       if(res.status == "200"){
-        const resultadoModificar = res.data.informacion
-        let resultadoLimpiar1 = resultadoModificar.replace("[","");
-        let resultadoPrueba = resultadoLimpiar1.replace("]","");
-        if (resultadoPrueba == "0"){
-          alert("Resultados de la prueba: No hay eventos recurrentes.")
+        if (res.data.resultado_prueba == "0"){
+          let mensaje = "Resultados de la prueba: No hay eventos recurrentes."
+          Vista.mostrarResultadoPrueba(mensaje)
+        }else{
+          let mensaje = "Resultados de la prueba: Hay eventos recurrentes."
+          Vista.mostrarResultadoPrueba(mensaje)
         }
       }
       //Caso contrario, mostrará un mensaje de error que se envia a la vista para mostrarla
