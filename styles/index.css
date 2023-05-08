@@ -15,7 +15,7 @@ button{
     "menu"
     "pagina-principal"
     "footer";
-    grid-template-rows: auto 80vh auto;
+    grid-template-rows: auto;
 }
 .pagina-principal{
     grid-area: pagina-principal;
@@ -54,12 +54,12 @@ button{
     width: 9.5vw;
     padding: 0.7vw 2.5vw;
     background: pink;
-    border-radius: 20px;
+    border-radius: 0.2vw;
     text-decoration: none;
     color: var(--negro);
 }
 .principal-botones a:hover{
-    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    background-color: rgb(250, 156, 171);
 }
 .principal-video{
     grid-area: video;

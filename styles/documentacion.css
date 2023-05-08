@@ -85,15 +85,7 @@ button{
 
 .principal-grilla{
     display: grid;
-    grid-template-areas: 
-    "informacion" 
-    "tarjetas";
-    row-gap: 2vw;
     padding: 5vw 0vw;
-}
-
-.pricnipal-grilla .informacion{
-    grid-area: informacion;
 }
 
 .principal-grilla .informacion .informacion__texto{
@@ -101,7 +93,6 @@ button{
 }
 
 .principal-grilla .tarjetas {
-    grid-area: tarjetas;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -154,7 +145,11 @@ button{
     color: var(--negro);
     padding: 0.5vw 3vw;
     background-color: var(--pink);
-    border-radius: 20px;
+    border-radius: 0.2vw;
+}
+
+.principal-grilla .tarjetas .tarjeta .tarjeta-boton a:hover {
+    background-color: rgb(250, 156, 171);
 }
 
 
