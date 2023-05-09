@@ -13,9 +13,17 @@ button{
     display: grid;
     grid-template-areas: 
     "menu"
-    "pagina-presentacion";
-    grid-template-rows: auto 80vh;
+    "pagina-presentacion"
+    "ola";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 50vh auto;
+    overflow-y: hidden;
 }
+
+.ola{
+    grid-area: ola;
+}
+
 
 .pagina-presentacion{
     grid-area: pagina-presentacion;
@@ -105,6 +113,7 @@ button{
     justify-content: space-between;
     width: 80vw;
     padding: 0vw 2vw;
+    background-color: var(--pink);
     border-bottom-left-radius: 1vw;
     border-bottom-right-radius: 1vw;
 }
