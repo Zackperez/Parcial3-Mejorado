@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: var(--blanco);
+    background-color: white;
 }
 
 :root{
@@ -18,7 +18,7 @@ body {
     --blanco: #faf6f1;
     --negro: rgb(30, 30, 30);
     --grisClaro: rgb(108, 108, 108);
-    --pink: pink;
+    --pink: #ff017e;
 }
 
 .btn{
