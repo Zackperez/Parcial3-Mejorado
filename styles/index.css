@@ -16,11 +16,11 @@ button{
     "pagina-presentacion"
     "ola";
     grid-template-columns: 1fr;
-    grid-template-rows: auto 50vh auto;
-    overflow-y: hidden;
+    grid-template-rows: auto 60vh auto;
 }
 
 .ola{
+    display: grid;
     grid-area: ola;
 }
 
@@ -29,6 +29,7 @@ button{
     grid-area: pagina-presentacion;
     display: grid;
     justify-items: center;
+
 }
 
 .presentacion-grilla{
