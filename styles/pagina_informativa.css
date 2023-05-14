@@ -5,11 +5,11 @@ h3{
 }
 
 p{
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
 
 li{
-    font-size: 1vw;
+    font-size: 1.2vw;
 }
 
 .hero{
@@ -18,7 +18,7 @@ li{
     "menu"
     "pagina-principal"
     "footer";
-    grid-template-rows: auto 80vh auto;
+    grid-template-rows: auto 90vh auto;
 }
 
 .menu {
@@ -82,7 +82,7 @@ li{
 }
 
 .textos{
-    height: 70vh;
+    height: 80vh;
     overflow-x: auto;
     grid-area: contenido;
     background-color: rgb(255, 255, 255);

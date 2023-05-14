@@ -12,7 +12,7 @@ const Controlador = {
         })
         //Una vez los reciba, los envia a la función mostrarTickets() de la vista
         .then(function(response){
-            Vista.mostrartickets(response.data);
+            Vista.mostrarTickets(response.data);
         })
         //Si hay un error, guarda el mensaje y los envia a la vista para mostrar el error
         .catch(function(error){
@@ -29,7 +29,7 @@ const Controlador = {
         })
 */
 const Vista = {
-    mostrartickets: function(datos){
+    mostrarTickets: function(datos){
         const ticketsGrilla = document.getElementById('ticketsGrilla');
         datos.forEach(datos => {
             const ticket = document.createElement('div');

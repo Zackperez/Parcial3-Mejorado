@@ -18,7 +18,7 @@ const Modelo = {
     //se almacena la respuesta en "res" para obtener el resultado de la petición y retornarla para mostrar en la vista
     const res = axios({
       method: "POST",
-      url: "http://127.0.0.1:4000/insertar_datos_paciente/",
+      url: "http://127.0.0.1:5000/insertar_datos_paciente",
       data: datos_insertar,
     });
     return res

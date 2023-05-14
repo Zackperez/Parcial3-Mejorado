@@ -1,8 +1,8 @@
 const Modelo = {
   async iniciarSesion(username, password) {
     const datos_insertar = {
-      username: username,
-      password: password
+      usuario: username,
+      contrasena: password
     }
     const res = await axios({
       method: "POST",
@@ -49,7 +49,8 @@ const Controlador = {
     try {
       const res = await Modelo.iniciarSesion(username, password);
       console.log(res)
-      if (res.status == "200") {
+      let ACCESO_CONCEDIDO = "200";
+      if (res.status == ACCESO_CONCEDIDO) {
         const access_token = res.data.access_token;
         localStorage.setItem("access_token", access_token);
         Vista.mostrarMensajeSatisfactorio("Inicio de sesión exitoso");

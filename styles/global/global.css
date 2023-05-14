@@ -18,18 +18,5 @@ body {
     --blanco: white;
     --negro: rgb(30, 30, 30);
     --grisClaro: rgb(108, 108, 108);
-    --pink: #fea8ce;
-}
-
-.btn{
-    padding: 0.9em 2.1875em;
-    border: 0;
-    border-radius: 0.1875em;
-    background-color: #7066e0;
-    box-shadow: none;
-    color: #fff;
-    font-size: 1.125em;
-    font-weight: 500;
-    white-space: nowrap;
-    margin-left: 2vw;
+    --pink: #ff4f81;
 }

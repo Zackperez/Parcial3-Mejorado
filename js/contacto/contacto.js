@@ -3,10 +3,9 @@ import config from '../supabase/keys.js';
 
 //Modelo que recibe los datos y los envia a la base de datos
 const Modelo = {
-  //función asíncrona que recibe la data a enviar
   async enviarTicket( nombre, apellido, correo, titulo, descripcion ) {
-    //se guarda en un objeto para luego ser enviado como data en AXIOS
-    const datos_insertar = {
+    
+    const datos_insertar_bd = {
       nombre: nombre,
       apellido: apellido,
       correo: correo,
@@ -19,7 +18,7 @@ const Modelo = {
       method: "POST",
       url: "https://mmphzayxvvhdtrtcvjsq.supabase.co/rest/v1/tickets",
       headers: config.headers,
-      data: datos_insertar,
+      data: datos_insertar_bd,
     });
     return res
   }
@@ -36,9 +35,12 @@ const Vista = {
     return { nombre, apellido, correo, titulo, descripcion };
   },
 
-  //Método para mostrar los mensajes de errores
   mostrarMensajeError(mensaje) {
-    alert(mensaje)
+    Swal.fire({
+      icon: 'error',
+      title: 'Algo salió mal',
+      text: mensaje,
+    })
   },
 
   mostrarAlertaSatisfactorio(mensaje){
@@ -64,19 +66,21 @@ const Vista = {
 const Controlador = {
   async enviarTicket() {
     const { nombre, apellido, correo, titulo, descripcion } = Vista.getDatosTicket();
-
-    try {
-      //Se envian los datos al modelo y se espera hasta que se ejecute (el modelo) y retorne un resultado
-      const res = await Modelo.enviarTicket(nombre, apellido, correo ,titulo, descripcion);
-      //dentro de "res" se almacena el resultado de AXIOS.
-      //Si el status en correcto, se muestra un alert
-      if (res.status == "201") {
-        Vista.mostrarAlertaSatisfactorio("Ticket enviado");
-        Vista.vaciarCampos();
+    let VACIO = "";
+    if (nombre == VACIO || apellido == VACIO || correo == VACIO || titulo == VACIO || descripcion == VACIO){
+      let mensaje = "Los campos no pueden estar vacíos";
+      Vista.mostrarMensajeError(mensaje);
+    }else{
+      try {
+        const res = await Modelo.enviarTicket(nombre, apellido, correo ,titulo, descripcion);
+        let TICKET_CREADO = "201";
+        if (res.status == TICKET_CREADO) {
+          Vista.mostrarAlertaSatisfactorio("Ticket enviado");
+          Vista.vaciarCampos();
+        }
+      } catch (err) {
+        Vista.mostrarMensajeError(err);
       }
-      //Caso contrario, mostrará un mensaje de error que se envia a la vista para mostrarla
-    } catch (err) {
-      Vista.mostrarMensajeError(err);
     }
   }
 }

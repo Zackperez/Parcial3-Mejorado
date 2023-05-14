@@ -1,10 +1,10 @@
 @import url(global/global.css);
 
-a{
+a {
     cursor: pointer;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 }
@@ -24,7 +24,7 @@ button{
     grid-area: menu;
     display: grid;
     height: 10vh;
-    justify-content: center;
+    background-color: var(--negro);
 }
 
 .menu-contenedor {
@@ -33,11 +33,8 @@ button{
         "titulo enlaces";
     align-items: center;
     justify-content: space-between;
-    width: 80vw;
-    padding: 0vw 2vw;
-    background-color: var(--pink);
-    border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
 
 .menu-titulo {
@@ -59,6 +56,7 @@ button{
 
 .menu-contenedor .menu-titulo .menu__titulo {
     color: var(--blanco);
+
 }
 
 .menu-contenedor .menu-lista .menu__item {
@@ -66,12 +64,12 @@ button{
 }
 
 .menu-contenedor .menu-lista .menu__item a {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     margin-left: 2vw;
     color: var(--blanco);
 }
 
-.menu-contenedor .menu-lista .menu__item a:hover{
+.menu-contenedor .menu-lista .menu__item a:hover {
     color: var(--pink);
 }
 
@@ -85,14 +83,14 @@ button{
     display: grid;
     align-items: center;
     justify-items: center;
-    margin: 5vw 5vw;
+    margin: 5vw 13vw;
 }
 
-.principal-grilla{
+.principal-grilla {
     display: grid;
-    grid-template-areas: 
-    "contenido"
-    "tarjetas";
+    grid-template-areas:
+        "contenido"
+        "tarjetas";
     align-items: center;
     grid-template-columns: auto;
     row-gap: 2vh;
@@ -100,62 +98,62 @@ button{
 }
 
 .contenido {
-    display: grid;
-    grid-template-areas: 
-    "info1 info2";
     grid-area: contenido;
-    height: 60vh;
-    text-align: center;
-    color: #ffffff;
-}
-
-.contenido-info1{
     display: grid;
-    background-color:#424161;
-    grid-area: info1;
+    grid-template-areas:
+        "info1"
+        "info2";
     padding: 1vw;
-    align-content: center;
 }
 
-.contenido-info2{
+.contenido-info1 {
+    grid-area: info1;
     display: grid;
     align-content: center;
-    grid-area: info2;
-    background-color:#424161;
-
 }
 
-.contenido__titulo{
+.contenido-info2 {
+    grid-area: info2;
+    display: grid;
+
+    align-content: center;
+}
+
+.contenido__titulo {
     font-size: 2vw;
 }
 
-.principal__texto{
+.principal__texto {
     text-align: justify;
     margin: 2vh;
+    font-size: 1.2vw;
 }
-.principal-botones a{
+
+.principal-botones a {
     text-align: center;
     width: 9.5vw;
     padding: 0.7vw 2.5vw;
-    background: #fd9cc4;
+    background: var(--pink);
     border-radius: 0.2vw;
     text-decoration: none;
     color: var(--negro);
 }
-.principal-botones a:hover{
+
+.principal-botones a:hover {
     background-color: #fd9cc4;
 }
-.principal-video{
+
+.principal-video {
     justify-content: center;
     display: flex;
 }
 
-.principal__video{ 
+.principal__video {
     width: 30vw;
     height: 50vh;
 }
 
-.principal-grilla .informacion .informacion__texto{
+.principal-grilla .informacion .informacion__texto {
     font-size: 1.5vw;
 }
 
@@ -189,6 +187,10 @@ button{
     align-items: center;
 }
 
+
+.principal-grilla .tarjetas .tarjeta__icono {
+    color: var(--blanco);
+}
 
 
 .principal-grilla .tarjetas .tarjeta-titulo {
@@ -225,7 +227,7 @@ button{
 .principal-grilla .tarjetas .tarjeta .tarjeta-boton a {
     color: var(--negro);
     padding: 0.5vw 3vw;
-    background-color: #fd9cc4;
+    background-color: var(--pink);
     border-radius: 0.2vw;
 }
 
@@ -297,10 +299,26 @@ button{
     /* CONTENIDO PRINCIPAL */
 
     .principal-grilla {
-        margin-top: 0vh;
+        margin-top: 2vh;
         margin-right: 2vw;
         margin-left: 2vw;
     }
+
+    .pagina-principal {
+        margin: 2vh 2vw;
+    }
+
+    .contenido__titulo {
+        font-size: 7vw;
+    }
+
+    .principal__texto {
+        text-align: justify;
+        margin: 2vh;
+        font-size: 5vw;
+    }
+
+
 
     .principal-grilla .tarjetas {
         display: flex;
@@ -310,8 +328,14 @@ button{
     }
 
     .principal-grilla .tarjetas .tarjeta {
-        border: 1px solid black;
-        height: 20vh;
+        display: grid;
+        grid-template-areas:
+            "icono titulo"
+            "subtitulo subtitulo"
+            "boton boton";
+        align-items: center;
+        grid-template-columns: 15vw auto;
+        height: 40vh;
         width: 80vw;
         padding: 5vw;
         background-color: #191919;
@@ -325,14 +349,13 @@ button{
 
     .principal-grilla .tarjetas .tarjeta .tarjeta__subtitulo {
         font-weight: 400;
-        font-size: 3.4vw;
+        font-size: 5vw;
     }
 
     .principal-grilla .tarjetas .tarjeta .tarjeta-boton a {
         color: var(--blanco);
         padding: 2vw 10vw;
-        background-color: var(--grisClaro);
-        font-size: 3.4vw;
+        font-size: 5vw;
     }
 
 

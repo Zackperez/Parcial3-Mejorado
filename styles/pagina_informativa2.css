@@ -1,49 +1,54 @@
 @import url(global/global.css);
 
-h3{
+h3 {
     font-size: 1.5vw;
 }
 
-p{
-    font-size: 1vw;
+p {
+    font-size: 1.2vw;
 }
 
-li{
-    font-size: 1vw;
+li {
+    font-size: 1.2vw;
 }
 
-.hero{
+.hero {
     display: grid;
-    grid-template-areas: 
-    "menu"
-    "pagina-principal"
-    "footer";
-    grid-template-rows: auto 80vh auto;
+    grid-template-areas:
+        "menu"
+        "pagina-principal"
+        "footer";
+    grid-template-rows: auto 90vh auto;
 }
-.pagina-principal{
+
+.pagina-principal {
     margin-top: 8vh;
     margin-left: 10vw;
     margin-right: 10vw;
     margin-bottom: 5vh;
-   
+
 }
-.principal-grilla{
+
+.principal-grilla {
     display: grid;
-    grid-template-areas: 
-    "imagen textos";
+    grid-template-areas:
+        "imagen textos";
     grid-template-columns: auto;
     column-gap: 2vw;
 }
-.textos{
+
+.textos {
     grid-area: textos;
 }
-.principal-imagen{
+
+.principal-imagen {
     grid-area: imagen;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.principal-grilla .principal-texto{
+
+.principal-grilla .principal-texto {
     line-height: 30px;
     padding: 0px 25px;
     text-align: justify;
@@ -51,7 +56,8 @@ li{
     height: 70vh;
     overflow-x: auto;
 }
-.principal-imagen .principal__imagen{
+
+.principal-imagen .principal__imagen {
     height: 56vh;
     width: auto;
 }
@@ -78,7 +84,7 @@ li{
     grid-area: titulo;
 }
 
-.menu-contenedor .menu-titulo .menu__titulo a{
+.menu-contenedor .menu-titulo .menu__titulo a {
     font-size: 1.8vw;
     font-weight: bold;
     color: var(--blanco);
@@ -86,7 +92,7 @@ li{
 
 }
 
-.pagina-principal{
+.pagina-principal {
     grid-area: pagina-principal;
     margin-top: 5vh;
     margin-right: 10vw;
@@ -94,19 +100,19 @@ li{
     margin-bottom: 5vh;
 }
 
-.textos{
-    height: 70vh;
+.textos {
+    height: 80vh;
     overflow-x: auto;
     /* background-color: rgb(255, 255, 255); */
     border-radius: 0.5vw;
 }
 
-.texto-contenedor{
+.texto-contenedor {
     display: grid;
     row-gap: 2vh;
 }
 
-.texto-contenido{
+.texto-contenido {
     display: grid;
     row-gap: 4vh;
     text-align: justify;
@@ -114,11 +120,11 @@ li{
     padding: 1vw 1vw;
 }
 
-.texto-contenido .descripcion{
+.texto-contenido .descripcion {
     margin-left: 2vw;
 }
 
-.lista{
+.lista {
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
@@ -187,7 +193,7 @@ li{
         margin-left: 5vw;
     }
 
-    
+
     .pagina-principal {
         margin-right: 5vw;
         margin-left: 5vw;

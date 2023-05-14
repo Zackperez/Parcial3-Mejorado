@@ -1,71 +1,66 @@
 @import url(global/global.css);
 
-a{
+a {
     cursor: pointer;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 }
 
-.hero{
+.hero {
     display: grid;
-    grid-template-areas: 
-    "menu"
-    "pagina-presentacion"
-    "ola";
+    grid-template-areas:
+        "menu"
+        "pagina-presentacion"
+        "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: auto 60vh auto;
-}
-
-.ola{
-    display: grid;
-    grid-area: ola;
+    grid-template-rows: auto 80vh 10vh;
 }
 
 
-.pagina-presentacion{
+.pagina-presentacion {
     grid-area: pagina-presentacion;
     display: grid;
     justify-items: center;
 
 }
 
-.presentacion-grilla{
+.presentacion-grilla {
     display: grid;
-    grid-template-areas: 
-    "textos imagen"
-    "botones imagen";
+    grid-template-areas:
+        "textos imagen"
+        "botones imagen";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40vh 20vh;
+    grid-template-rows: 50vh 10vh;
     column-gap: 10vw;
-    align-content: center;
 }
 
-.presentacion-imagen{
+.presentacion-imagen {
     display: grid;
     align-items: center;
     grid-area: imagen;
+    justify-content: center;
 }
 
-.presentacion__imagen{
-    height: 50vh;
+.presentacion__imagen {
+    height: 70vh;
     width: auto;
 }
 
-.presentacion-textos{
+.presentacion-textos {
     display: grid;
     align-content: center;
     grid-area: textos;
 }
 
-.presentacion__titulo{
+.presentacion__titulo {
     font-size: 7vw;
     line-height: 1;
 }
 
-.presentacion-botones{
+.presentacion-botones {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -73,24 +68,24 @@ button{
     column-gap: 1vw;
 }
 
-.presentacion-botones a{
+.presentacion-botones a {
     text-align: center;
     padding: 0.7vw 2.5vw;
-    border: 1px solid var(--pink);
     border-radius: 0.2vw;
     text-decoration: none;
     color: var(--negro);
-}
-
-.presentacion-botones a:hover{
     background-color: var(--pink);
 }
 
-.color-rosa{
+.presentacion-botones a:hover {
+    background-color: rgb(250, 156, 171);
+}
+
+.color-rosa {
     color: var(--pink);
 }
 
-.pagina-principal{
+.pagina-principal {
     grid-area: pagina-principal;
     display: grid;
     margin: 0vh 10vw;
@@ -103,7 +98,7 @@ button{
     grid-area: menu;
     display: grid;
     height: 10vh;
-    justify-content: center;
+    background-color: var(--negro);
 }
 
 .menu-contenedor {
@@ -112,11 +107,8 @@ button{
         "titulo enlaces";
     align-items: center;
     justify-content: space-between;
-    width: 80vw;
-    padding: 0vw 2vw;
-    background-color: var(--pink);
-    border-bottom-left-radius: 1vw;
-    border-bottom-right-radius: 1vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
 
 .menu-titulo {
@@ -137,28 +129,27 @@ button{
 }
 
 .menu-contenedor .menu-titulo .menu__titulo {
-    color: var(--negro);
+    color: var(--blanco);
 }
 
 .menu-contenedor .menu-lista .menu__item {
-    color: var(--negro);
+    color: var(--blanco);
 }
 
 .menu-contenedor .menu-lista .menu__item a {
     font-size: 1.5vw;
     margin-left: 2vw;
-    color: var(--negro);
+    color: var(--blanco);
 }
 
-.menu-contenedor .menu-lista .menu__item a:hover{
+.menu-contenedor .menu-lista .menu__item a:hover {
     color: var(--pink);
 }
 
-
 .menu__item--active a {
     font-weight: bold;
+    border-bottom: 1px solid var(--blanco);
 }
-
 
 /* CONTENIDO REDES */
 
@@ -184,4 +175,106 @@ button{
 
 .redes-texto a {
     color: var(--blanco);
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    .hero {
+        display: grid;
+        grid-template-areas:
+            "menu"
+            "pagina-presentacion"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 100vh 10vh;
+    }
+
+    /* CONTENIDO MENU */
+    .menu {
+        height: 20vh;
+    }
+
+    .menu-contenedor {
+        display: grid;
+        grid-template-areas:
+            "titulo"
+            "enlaces";
+        margin-left: 5vw;
+        row-gap: 0vh;
+    }
+
+    .menu-contenedor .menu-titulo .menu__titulo {
+        font-size: 8vw;
+    }
+
+    .menu-contenedor .menu-lista .menu__item a {
+        font-size: 5vw;
+        margin-left: 3vw;
+    }
+
+    .presentacion-grilla {
+        display: grid;
+        grid-template-areas:
+            "textos"
+            "imagen"
+            "botones";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        column-gap: 10vw;
+    }
+
+    .presentacion__titulo {
+        text-align: center;
+        font-size: 18vw;
+    }
+
+    .presentacion__imagen {
+        height: 40vh;
+        width: auto;
+    }
+
+    .presentacion-botones a {
+        text-align: center;
+        padding: 2vw;
+        border-radius: 0.2vw;
+        text-decoration: none;
+        color: var(--negro);
+        background-color: var(--pink);
+    }
+
+    /* CONTENIDO REDES */
+
+    .footer {
+        display: grid;
+        align-items: center;
+        height: 20vh;
+
+    }
+
+    .contenido-redes {
+        padding: 0;
+        row-gap: 3vh;
+    }
+
+    .redes-tarjetas {
+        display: flex;
+        justify-content: center;
+        column-gap: 5vw;
+    }
+
+    .redes-tarjetas .tarjeta {
+        display: grid;
+        align-items: center;
+    }
+
+    .redes-tarjetas .tarjeta-icono i {
+        font-size: 8vw;
+        color: aliceblue;
+    }
+
+    .redes-texto p {
+        font-size: 3.5vw;
+    }
+
 }
