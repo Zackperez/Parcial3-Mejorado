@@ -8,15 +8,21 @@ const Controlador = {
             headers: config.headers
         })
             .then(function (response) {
+                // Objeto para almacenar el conteo de repeticiones
+                const ageCount = {};
 
-                response.data.forEach(element => {
-
-
-                    console.log(element)
-
+                // Iterar sobre los datos y contar las repeticiones
+                response.data.forEach(obj => {
+                    const age = obj.age;
+                    if (ageCount.hasOwnProperty(age)) {
+                        ageCount[age]++;
+                    } else {
+                        ageCount[age] = 1;
+                    }
                 });
 
-                //Vista.mostrarRegistrosTablas(response.data);
+
+                Vista.mostrarRegistrosTablas(ageCount);
             })
             .catch(function (error) {
                 console.log(error)
@@ -58,7 +64,32 @@ const Controlador = {
 const Vista = {
     /* PAGINA PRINCIPAL */
     mostrarRegistrosTablas: function (data) {
-        console.log(data)
+        const labels = Object.keys(data);
+        const values = Object.values(data);
+
+        // Paso 4: Configurar y renderizar la gráfica
+        const canvas = document.getElementById('myChart2');
+        const chart = new Chart(canvas, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Datos',
+                    data: values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Renderiza la gráfica
+        chart.render();
     },
 
     mostrarRegistrosTablas2: function (data) {
@@ -145,7 +176,7 @@ const Vista = {
 
 document.addEventListener('DOMContentLoaded', function () {
     Controlador.mostrarRegistrosTablas();
-    Controlador.mostrarRegistrosTablas2();
-    Controlador.mostrarRegistrosTablas3();
+    //Controlador.mostrarRegistrosTablas2();
+    //Controlador.mostrarRegistrosTablas3();
 })
 
