@@ -156,5 +156,11 @@ h3 {
         font-weight: 500;
     }
 
+    .principal-grilla .container .izquierda button {
+        color: var(--blanco);
+        padding: 2vw 10vw;
+        background-color: var(--pink);
+        font-size: 5vw;
+    }
 
 }

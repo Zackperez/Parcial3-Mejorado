@@ -77,3 +77,38 @@ body{
     text-transform: uppercase;
     color: var(--negro);
 }
+
+@media only screen and (max-width: 600px) {
+
+    .contenedor-formulario {
+        width: 80vw;
+        height: 80vh;
+    }
+
+    .formulario-entradas {
+        font-size: 4vw;
+    }
+
+    .formulario-entradas input {
+        padding: 0 1vw;
+        width: 60vw;
+        height: 7vh;
+        /* border: transparent; */
+    }
+
+    .formulario-boton .formulario__boton {
+        height: 6vh;
+        width: auto;
+        background-color: var(--pink);
+        border-radius: 0.5vw;
+    }
+
+    .formulario-boton .formulario__boton a{
+        color: var(--blanco);
+        padding: 2vw 10vw;
+        font-size: 5vw;
+        text-transform: none;
+        font-weight: 500;
+    }
+
+}

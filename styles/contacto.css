@@ -1,10 +1,10 @@
 @import url(global/global.css);
 
-a{
+a {
     cursor: pointer;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 }
@@ -13,12 +13,12 @@ body {
     background-color: var(--blanco);
 }
 
-.hero{
+.hero {
     display: grid;
-    grid-template-areas: 
-    "menu"
-    "formulario"
-    "footer";
+    grid-template-areas:
+        "menu"
+        "formulario"
+        "footer";
     grid-template-rows: auto 80vh auto;
 }
 
@@ -72,7 +72,7 @@ body {
     color: var(--blanco);
 }
 
-.menu-contenedor .menu-lista .menu__item a:hover{
+.menu-contenedor .menu-lista .menu__item a:hover {
     color: var(--pink);
 }
 
@@ -111,7 +111,7 @@ body {
     height: 20vh;
 }
 
-.formulario-grilla .informacion .informacion__descripcion{
+.formulario-grilla .informacion .informacion__descripcion {
     font-size: 1.3vw;
 }
 
@@ -141,7 +141,7 @@ body {
     margin-bottom: 1vh;
 }
 
-.formulario .formulario-grilla .tarjeta .tarjeta-entradas input:focus{
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas input:focus {
     outline: none;
 }
 
@@ -153,7 +153,7 @@ body {
     font-size: 1.3vw;
 }
 
-.formulario .formulario-grilla .tarjeta .tarjeta-entradas textarea:focus{
+.formulario .formulario-grilla .tarjeta .tarjeta-entradas textarea:focus {
     outline: none;
 }
 
@@ -193,4 +193,132 @@ body {
 
 .redes-texto a {
     color: var(--blanco);
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* CONTENIDO HERO */
+    .hero {
+        display: grid;
+        grid-template-areas:
+            "menu"
+            "formulario"
+            "footer";
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CONTENIDO MENU */
+    .menu {
+        height: 20vh;
+    }
+
+    .menu-contenedor {
+        display: grid;
+        grid-template-areas:
+            "titulo"
+            "enlaces";
+        margin: auto;
+        row-gap: 0vh;
+    }
+
+    .menu-contenedor .menu-titulo .menu__titulo {
+        font-size: 8vw;
+    }
+
+    .menu-contenedor .menu-lista .menu__item a {
+        font-size: 5vw;
+        margin-left: 3vw;
+    }
+
+    /* CONTENIDO FORMULARIO */
+
+    .formulario .formulario-grilla {
+        display: grid;
+        grid-template-areas:
+            "informacion"
+            "contenido";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        column-gap: 0;
+        row-gap: 5vh;
+        padding: 5vw;
+        width: auto;
+        color: var(--negro);
+        border-radius: 0.5vw;
+    }
+
+    
+
+    .formulario-grilla .informacion {
+        grid-area: informacion;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .formulario-grilla .informacion .informacion__descripcion {
+        font-size: 4vw;
+    }
+
+    .formulario .formulario-grilla .tarjeta .tarjeta-entradas input {
+        height: 3vh;
+        background-color: var(--blanco);
+        border: transparent;
+        border-bottom: 1px solid #191919;
+        font-size: 4vw;
+        margin-bottom: 1vh;
+    }
+
+    .formulario .formulario-grilla .tarjeta .tarjeta-entradas {
+        font-size: 4vw;
+    }
+
+    .formulario .formulario-grilla .tarjeta .tarjeta-entradas textarea {
+        font-size: 3.5vw;
+    }
+
+    .formulario .formulario-grilla .tarjeta .tarjeta-boton a {
+        color: var(--blanco);
+        padding: 2vw 10vw;
+        background-color: var(--pink);
+        font-size: 5vw;
+    }
+
+
+
+    /* CONTENIDO REDES */
+
+    .footer {
+        display: grid;
+        align-items: center;
+        height: 20vh;
+    }
+
+    .contenido-redes {
+        padding: 0;
+        row-gap: 3vh;
+    }
+
+    .redes-tarjetas {
+        display: flex;
+        justify-content: center;
+        column-gap: 5vw;
+    }
+
+    .redes-tarjetas .tarjeta {
+        display: grid;
+        align-items: center;
+    }
+
+    .redes-tarjetas .tarjeta-icono i {
+        font-size: 8vw;
+        color: aliceblue;
+    }
+
+    .redes-texto p {
+        font-size: 3.5vw;
+    }
+
 }

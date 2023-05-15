@@ -146,7 +146,6 @@ li{
 @media only screen and (max-width: 600px) {
 
     
-
     /* CONTENIDO MENU */
     .menu {
         height: 20vh;
@@ -155,21 +154,15 @@ li{
     .menu-contenedor {
         display: grid;
         grid-template-areas:
-            "titulo"
-            "enlaces";
+            "titulo";
         margin-left: 5vw;
         row-gap: 0vh;
+        align-items: center;
     }
 
-    .menu-contenedor .menu-titulo .menu__titulo {
-        font-size: 8vw;
+    .menu-contenedor .menu-titulo .menu__titulo a{
+        font-size: 6vw;
     }
-
-    .menu-contenedor .menu-lista .menu__item a {
-        font-size: 5vw;
-        margin-left: 3vw;
-    }
-
     /* CONTENIDO PRINCIPAL */
 
     .principal-grilla {
@@ -182,10 +175,34 @@ li{
 
     
     .pagina-principal {
-        margin-right: 5vw;
-        margin-left: 5vw;
-        margin-bottom: 5vh;
+        margin: 0;
     }
+
+    /* CONTENIDO PRINCIPAL */
+    .principal-grilla {
+        display: grid;
+        grid-template-areas:
+        "menu" 
+        "contenido";
+    }
+
+    .indice {
+        display: none;
+    }
+
+    .texto .texto-contenido .titulo{
+        font-size: 5vw;
+    }
+
+    .texto .texto-contenido .descripcion{
+        font-size: 4vw;
+    }
+
+    .texto .texto-contenido .lista li, p{
+        font-size: 4vw;
+    }
+
+
 
     /* CONTENIDO REDES */
 

@@ -283,7 +283,7 @@ button {
         grid-template-areas:
             "titulo"
             "enlaces";
-        margin-left: 5vw;
+        margin: auto;
         row-gap: 0vh;
     }
 
@@ -309,13 +309,13 @@ button {
     }
 
     .contenido__titulo {
-        font-size: 7vw;
+        font-size: 6vw;
     }
 
     .principal__texto {
         text-align: justify;
         margin: 2vh;
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
 
@@ -355,7 +355,8 @@ button {
     .principal-grilla .tarjetas .tarjeta .tarjeta-boton a {
         color: var(--blanco);
         padding: 2vw 10vw;
-        font-size: 5vw;
+        font-size: 4vw;
+        border-radius: 0.5vw;
     }
 
 
