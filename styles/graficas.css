@@ -150,14 +150,11 @@
 
   .tarjetas{
     grid-area: tarjetas;
-  
-    
   }
 
   .charts{
     grid-area: graficos;
   }
-
 
   .menu_contenedor {
     background-color: #131417;
@@ -269,27 +266,24 @@
     display: flex;
 
   }
-  
+
   .chart {
     padding: 1.5vw;
     border-radius: 0.5vw;
     box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
     width: 80vw;
-    height: auto;
-  }
-  
-  .charti {
-    padding: 1.5vw;
-    border-radius: 0.5vw;
-    box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
-   
-    height: 70vh;
-  }
-  
-  .chart__titulo {
-    font-size: 1.8vw;
-  }
+    height: 33vh;
+    margin-top: 20px;
     
+  }
+  .chart__titulo {
+    font-size: 3.8vw;
+  }
+  .grafi{
+    padding: 12px;
+    height: 28vh ;
+  }
+  
   .graficas {
     display: flex;
     gap: 4vw;
