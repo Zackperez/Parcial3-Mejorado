@@ -139,6 +139,44 @@ const Controlador = {
                 Vista.mostrarMensajeError(error);
             })
     },
+
+    mostrarRegistrosTablas6: function () {
+        axios({
+            method: 'GET',
+            url: 'https://mmphzayxvvhdtrtcvjsq.supabase.co/rest/v1/datos_csv?select=*',
+            headers: config.headers
+        })
+            .then(function (response) {
+
+                // Obtener los distintos grupos de edad y grado de malignidad
+                const ageGroups = Array.from(new Set(response.data.map(item => item.age)));
+                const malignancyGrades = Array.from(new Set(response.data.map(item => item.deg_malig)));
+
+                // Crear una matriz para almacenar la frecuencia de casos de cáncer de mama
+                const frequencies = [];
+                for (let i = 0; i < ageGroups.length; i++) {
+                    frequencies[i] = new Array(malignancyGrades.length).fill(0);
+                }
+
+                // Calcular la frecuencia de casos de cáncer de mama
+                response.data.forEach(item => {
+                    const ageIndex = ageGroups.indexOf(item.age);
+                    const malignancyIndex = malignancyGrades.indexOf(item.deg_malig);
+                    frequencies[ageIndex][malignancyIndex]++;
+                });
+                console.log(ageGroups)
+                console.log(malignancyGrades)
+                console.log(frequencies)
+
+                // Crear una matriz de colores para las barras
+
+                Vista.mostrarRegistrosTablas6(ageGroups, malignancyGrades, frequencies);
+            })
+            .catch(function (error) {
+                console.log(error)
+                Vista.mostrarMensajeError(error);
+            })
+    },
 }
 
 const Vista = {
@@ -307,7 +345,7 @@ const Vista = {
                     borderColor: 'rgb(99, 255, 138)', // Color del borde
                     borderWidth: 2,
                     pointRadius: 6
-                  }]
+                }]
             },
             options: {
                 responsive: true,
@@ -319,7 +357,7 @@ const Vista = {
                         title: {
                             text: 'Tamaño del Tumor', // Etiqueta descriptiva para el eje X
                             display: true
-                        }   
+                        }
                     },
                     y: {
                         display: true,
@@ -329,7 +367,7 @@ const Vista = {
                             text: 'Número de Ganglios Linfáticos', // Etiqueta descriptiva para el eje Y
                             display: true
                         }
-                        
+
                     }
                 }
             }
@@ -337,6 +375,7 @@ const Vista = {
         // Renderiza la gráfica
         chart.render();
     },
+
     mostrarRegistrosTablas5: function (data) {
 
         const labels = Object.keys(data);
@@ -386,6 +425,43 @@ const Vista = {
         chart.render();
     },
 
+    mostrarRegistrosTablas6: function (ageGroups, malignancyGrades, frequencies) {
+
+        // Paso 4: Configurar y renderizar la gráfica
+        const canvas = document.getElementById('myChart6');
+        const chart = new Chart(canvas, {
+            type: 'bar',
+            data: {
+                labels: ageGroups,
+                datasets: malignancyGrades.map((grade, index) => ({
+                  label: `Grado ${grade}`,
+                  data: frequencies.map(row => row[index])
+                }))
+              },
+            options: {
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Recurrencia de los casos'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de casos'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Renderiza la gráfica
+        chart.render();
+    },
 
 }
 
@@ -395,6 +471,5 @@ document.addEventListener('DOMContentLoaded', function () {
     Controlador.mostrarRegistrosTablas3();
     Controlador.mostrarRegistrosTablas4();
     Controlador.mostrarRegistrosTablas5();
-
-
+    Controlador.mostrarRegistrosTablas6();
 })
