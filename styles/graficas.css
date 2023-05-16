@@ -1,8 +1,8 @@
 @import url(global/global.css);
 
-*{
-    margin:0;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  font-family: sans-serif;
 }
 
 .principal {
@@ -12,40 +12,39 @@
 
 .contenido {
   display: grid;
-  grid-template-areas: 
-  "menu"
-  "graficas";
+  grid-template-areas:
+    "menu"
+    "graficas";
   grid-template-rows: auto auto;
 }
-/* CONTENIDO MENU */
 
+/* CONTENIDO MENU */
 .menu {
-    display: grid;
-    height: 10vh;
-    background-color: var(--negro);
+  display: grid;
+  height: 10vh;
+  background-color: var(--negro);
 }
 
 .menu-contenedor {
-    display: grid;
-    grid-template-areas:
-        "titulo enlaces";
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 15vw;
-    margin-right: 15vw;
+  display: grid;
+  grid-template-areas:
+    "titulo enlaces";
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 .menu-titulo {
-    grid-area: titulo;
+  grid-area: titulo;
 }
 
 .menu-contenedor .menu-titulo .menu__titulo a {
-    font-size: 1.8vw;
-    font-weight: bold;
-    color: var(--blanco);
-    cursor: pointer;
+  font-size: 1.8vw;
+  font-weight: bold;
+  color: var(--blanco);
+  cursor: pointer;
 }
-
 
 /* FIN MENU*/
 
@@ -92,14 +91,13 @@
   color: #030303
 }
 
-.charts {
-  display: flex;
-}
-.grafi{
+.grafi {
   display: flex;
   height: 40vh;
   justify-content: center;
+  align-items: center;
 }
+
 .chart {
   padding: 1.5vw;
   border-radius: 0.5vw;
@@ -141,18 +139,18 @@
   .contenido-derecha {
     display: grid;
     grid-area: contenido;
-    grid-template-areas: 
-    "tarjetas"
-    "graficos";
+    grid-template-areas:
+      "tarjetas"
+      "graficos";
     grid-template-rows: auto;
     grid-template-columns: 1fr;
   }
 
-  .tarjetas{
+  .tarjetas {
     grid-area: tarjetas;
   }
 
-  .charts{
+  .charts {
     grid-area: graficos;
   }
 
@@ -163,12 +161,13 @@
     height: 8vh;
     width: 100vw;
   }
+
   .menu-contenedor .menu-titulo .menu__titulo a {
     font-size: 4.8vw;
     font-weight: bold;
     color: var(--blanco);
     cursor: pointer;
-}
+  }
 
 
   .iconos {
@@ -198,20 +197,20 @@
     grid-template-areas:
       "card1 card2"
       "card3 card4";
-    padding:0;
+    padding: 0;
     grid-gap: 0;
     place-self: center;
-    grid-template-columns:  1fr;
-   
-    
+    grid-template-columns: 1fr;
+
+
   }
 
   .tarjeta1 {
     grid-area: card1;
     width: 36vw;
     height: 8vh;
-    
-    
+
+
   }
 
   .tarjeta2 {
@@ -234,11 +233,13 @@
     height: 8vh;
 
   }
+
   .nombre-tarjeta {
     color: #00000088;
     font-weight: 600;
     font-size: 3vw;
   }
+
   .tarjeta {
     display: grid;
     grid-template-areas:
@@ -258,7 +259,7 @@
     font-size: 5vw;
   }
 
-  .icon-box i{
+  .icon-box i {
     font-size: 6vw;
   }
 
@@ -274,24 +275,21 @@
     width: 80vw;
     height: 33vh;
     margin-top: 20px;
-    
   }
+
   .chart__titulo {
     font-size: 3.8vw;
   }
-  .grafi{
-    padding: 12px;
-    height: 28vh ;
+
+  .grafi {
+    height: 28vh;
   }
-  
+
   .graficas {
     display: flex;
     gap: 4vw;
     flex-wrap: wrap;
     justify-content: center;
   }
-
-
-
 
 }

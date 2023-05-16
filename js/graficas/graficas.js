@@ -339,7 +339,7 @@ const Vista = {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Relación Tamaño del Tumor vs Número de Ganglios Linfáticos',
+                    label: 'Tamaño tumor vs Número ganglios',
                     data: dataX.map((value, index) => ({ x: value, y: dataY[index] })),
                     backgroundColor: 'rgb(255, 99, 132)', // Color del punto
                     borderColor: 'rgb(99, 255, 138)', // Color del borde
@@ -348,7 +348,6 @@ const Vista = {
                 }]
             },
             options: {
-                responsive: true,
                 scales: {
                     x: {
                         display: true,
