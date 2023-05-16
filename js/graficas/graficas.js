@@ -38,20 +38,20 @@ const Controlador = {
         })
             .then(function (response) {
                 // Objeto para almacenar el conteo de repeticiones
-                const irradiatCount = {};
+                const events_recurrenceCount = {};
 
                 // Iterar sobre los datos y contar las repeticiones
                 response.data.forEach(obj => {
-                    const irradiat = obj.irradiat;
-                    if (irradiatCount.hasOwnProperty(irradiat)) {
-                        irradiatCount[irradiat]++;
+                    const events_recurrence = obj.events_recurrence;
+                    if (events_recurrenceCount.hasOwnProperty(events_recurrence)) {
+                        events_recurrenceCount[events_recurrence]++;
                     } else {
-                        irradiatCount[irradiat] = 1;
+                        events_recurrenceCount[events_recurrence] = 1;
                     }
                 });
 
 
-                Vista.mostrarRegistrosTablas2(irradiatCount);
+                Vista.mostrarRegistrosTablas2(events_recurrenceCount);
             })
             .catch(function (error) {
                 console.log(error)
@@ -141,8 +141,19 @@ const Vista = {
             },
             options: {
                 scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Rango de edades'
+                        }
+                    },
                     y: {
-                        beginAtZero: true
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de casos'
+                        }
                     }
                 }
             }
@@ -159,7 +170,7 @@ const Vista = {
         // Paso 4: Configurar y renderizar la gráfica
         const canvas = document.getElementById('myChart2');
         const chart = new Chart(canvas, {
-            type: 'pie',
+            type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
@@ -177,7 +188,19 @@ const Vista = {
             },
             options: {
                 scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Recurrencia de los casos'
+                        }
+                    },
                     y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de casos'
+                        },
                         beginAtZero: true
                     }
                 }
@@ -195,7 +218,7 @@ const Vista = {
         // Paso 4: Configurar y renderizar la gráfica
         const canvas = document.getElementById('myChart3');
         const chart = new Chart(canvas, {
-            type: 'bar',
+            type: 'pie',
             data: {
                 labels: labels,
                 datasets: [{
@@ -261,21 +284,27 @@ const Vista = {
                 responsive: true,
                 scales: {
                     x: {
+                        display: true,
                         type: 'linear',
                         position: 'bottom',
-                        text: 'Tamaño del Tumor', // Etiqueta descriptiva para el eje X
-                        display: true
+                        title: {
+                            text: 'Tamaño del Tumor', // Etiqueta descriptiva para el eje X
+                            display: true
+                        }   
                     },
                     y: {
+                        display: true,
                         type: 'linear',
                         position: 'left',
-                        text: 'Número de Ganglios Linfáticos', // Etiqueta descriptiva para el eje Y
-                        display: true
+                        title: {
+                            text: 'Número de Ganglios Linfáticos', // Etiqueta descriptiva para el eje Y
+                            display: true
+                        }
+                        
                     }
                 }
             }
         });
-
         // Renderiza la gráfica
         chart.render();
     },

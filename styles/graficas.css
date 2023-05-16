@@ -95,25 +95,21 @@
 .charts {
   display: flex;
 }
-
+.grafi{
+  display: flex;
+  height: 40vh;
+  justify-content: center;
+}
 .chart {
   padding: 1.5vw;
   border-radius: 0.5vw;
   box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
   width: 35vw;
-  height: 40vh;
-}
-
-.charti {
-  padding: 1.5vw;
-  border-radius: 0.5vw;
-  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
-  width: 35vw;
-  height: 40vh;
-
+  height: 45vh;
 }
 
 .chart__titulo {
+  text-align: center;
   font-size: 1.8vw;
 }
 
