@@ -111,6 +111,34 @@ const Controlador = {
                 console.log(error)
             })
     },
+
+    mostrarRegistrosTablas5: function () {
+        axios({
+            method: 'GET',
+            url: 'https://mmphzayxvvhdtrtcvjsq.supabase.co/rest/v1/datos_csv?select=*',
+            headers: config.headers
+        })
+            .then(function (response) {
+                // Objeto para almacenar el conteo de repeticiones
+                const irradiatCount = {};
+
+                // Iterar sobre los datos y contar las repeticiones
+                response.data.forEach(obj => {
+                    const irradiat = obj.irradiat;
+                    if (irradiatCount.hasOwnProperty(irradiat)) {
+                        irradiatCount[irradiat]++;
+                    } else {
+                        irradiatCount[irradiat] = 1;
+                    }
+                });
+
+                Vista.mostrarRegistrosTablas5(irradiatCount);
+            })
+            .catch(function (error) {
+                console.log(error)
+                Vista.mostrarMensajeError(error);
+            })
+    },
 }
 
 const Vista = {
@@ -164,6 +192,7 @@ const Vista = {
     },
 
     mostrarRegistrosTablas2: function (data) {
+
         const labels = Object.keys(data);
         const values = Object.values(data);
 
@@ -308,6 +337,54 @@ const Vista = {
         // Renderiza la gráfica
         chart.render();
     },
+    mostrarRegistrosTablas5: function (data) {
+
+        const labels = Object.keys(data);
+        const values = Object.values(data);
+
+        // Paso 4: Configurar y renderizar la gráfica
+        const canvas = document.getElementById('myChart5');
+        const chart = new Chart(canvas, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Datos',
+                    data: values,
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(99, 255, 138)',
+                        'rgb(235, 163, 54)',
+                        'rgb(231, 76, 252)'
+
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Recurrencia de los casos'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de casos'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Renderiza la gráfica
+        chart.render();
+    },
 
 
 }
@@ -317,5 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
     Controlador.mostrarRegistrosTablas2();
     Controlador.mostrarRegistrosTablas3();
     Controlador.mostrarRegistrosTablas4();
+    Controlador.mostrarRegistrosTablas5();
+
 
 })

@@ -128,7 +128,7 @@
     grid-template-areas:
       "navegacion"
       "contenido";
-    grid-template-rows: 10vh 35vh;
+    grid-template-rows: 10vh auto;
     grid-template-columns: 1fr;
   }
 
