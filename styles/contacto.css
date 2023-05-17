@@ -76,9 +76,10 @@ body {
     color: var(--pink);
 }
 
-.menu__item--active a {
+.menu-contenedor .menu-lista .menu__item--active a {
     font-weight: bold;
-    border-bottom: 1px solid var(--blanco);
+    border-bottom: 1px solid var(--pink);
+    color: var(--pink);
 }
 
 /* CONTENIDO FORMULARIO */
@@ -97,10 +98,6 @@ body {
     height: auto;
     width: 70vw;
     padding: 2vw;
-    /*
-    background-color: rgb(218, 218, 219);
-    border: 1px solid black;
-*/
     color: var(--negro);
     border-radius: 0.5vw;
 }
@@ -114,7 +111,6 @@ body {
 .formulario-grilla .informacion .informacion__descripcion {
     font-size: 1.3vw;
 }
-
 
 .formulario .formulario-grilla .tarjeta {
     grid-area: contenido;
@@ -164,8 +160,9 @@ body {
 }
 
 .formulario .formulario-grilla .tarjeta .tarjeta-boton a {
-    color: var(--negro);
-    padding: 0.5vw 3vw;
+    color: var(--blanco);
+    padding: 0.5vw 5vw;
+    border-radius: 0.5vw;
     background-color: var(--pink);
 }
 

@@ -20,3 +20,16 @@ body {
     --grisClaro: rgb(108, 108, 108);
     --pink: #ff4f81;
 }
+
+.btn{
+    margin-left: 1vw;
+    padding: 0.7vw 3vw;
+    border: 0;
+    border-radius: 0.1875em;
+    background-color: #7066e0;
+    box-shadow: none;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 500;
+    white-space: nowrap;
+}

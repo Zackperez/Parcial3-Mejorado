@@ -50,7 +50,7 @@ h3 {
 }
 
 .principal-grilla .container .izquierda button {
-    color: var(--negro);
+    color: var(--blanco);
     padding: 0.5vw 3vw;
     background-color: var(--pink);
     cursor: pointer;

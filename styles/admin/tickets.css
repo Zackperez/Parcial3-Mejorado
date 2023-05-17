@@ -61,7 +61,7 @@ button{
 }
 
 .menu-contenedor .menu-lista .menu__item a {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     margin-left: 2vw;
     color: var(--blanco);
 }
@@ -70,9 +70,10 @@ button{
     color: var(--pink);
 }
 
-.menu__item--active a {
+.menu-contenedor .menu-lista .menu__item--active a {
     font-weight: bold;
-    border-bottom: 1px solid var(--blanco);
+    border-bottom: 1px solid var(--pink);
+    color: var(--pink);
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -95,6 +96,7 @@ button{
 .tickets-grilla{
     height: 65vh;
     overflow-y: auto;
+    overflow-x: hidden;
     display: grid;
     row-gap: 2vh;
     width: 65vw;

@@ -25,15 +25,15 @@ const Vista = {
       icon: 'error',
       title: 'Oops...',
       text: mensaje,
-      footer: '<p>verifica si el servidor está activo</p>'
     })
+
   },
 
   mostrarMensajeSatisfactorio(mensaje) {
     console.log(mensaje);
   },
 
-  limpiarCampos(){
+  limpiarCampos() {
     username.value = "";
     password.value = "";
   },
@@ -48,24 +48,28 @@ const Controlador = {
     const { username, password } = Vista.getDatosIniciarSesion();
     try {
       const res = await Modelo.iniciarSesion(username, password);
-      console.log(res)
-      let ACCESO_CONCEDIDO = "200";
-      if (res.status == ACCESO_CONCEDIDO) {
+      if (res.data.acceso == "AUTORIZADO") {
         const access_token = res.data.access_token;
         localStorage.setItem("access_token", access_token);
         Vista.mostrarMensajeSatisfactorio("Inicio de sesión exitoso");
         Vista.redirigirAIndex();
+      } else {
+        Vista.mostrarMensajeError("Usuario no encontrado")
+        Vista.limpiarCampos();
       }
-    } catch (err) {
-      Vista.mostrarMensajeError('Error al iniciar sesión');
-      Vista.limpiarCampos();
-    }
+
+    } catch(err) {
+    Vista.mostrarMensajeError('Error al iniciar sesión');
+    console.log(err);
+
+    Vista.limpiarCampos();
   }
+}
 }
 
 
 const botonIniciarSesion = document.getElementById('botonIniciarSesion');
 
-botonIniciarSesion.onclick = function(){
+botonIniciarSesion.onclick = function () {
   Controlador.iniciarSesion()
 }

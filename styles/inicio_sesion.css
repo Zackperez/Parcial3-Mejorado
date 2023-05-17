@@ -1,6 +1,6 @@
 @import url(global/global.css);
 
-body{
+body {
     color: var(--blanco);
 }
 
@@ -66,16 +66,16 @@ body{
 .formulario-boton .formulario__boton {
     height: 7vh;
     width: 20vw;
-    background-color: pink;
     border: transparent;
-    border-radius: 5%;
+    background-color: var(--pink);
+    border-radius: 0.5vw;
 }
 
 .formulario-boton .formulario__boton a {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.2vw;
     text-transform: uppercase;
-    color: var(--negro);
+    color: var(--blanco);
 }
 
 @media only screen and (max-width: 600px) {
@@ -103,7 +103,7 @@ body{
         border-radius: 0.5vw;
     }
 
-    .formulario-boton .formulario__boton a{
+    .formulario-boton .formulario__boton a {
         color: var(--blanco);
         padding: 2vw 10vw;
         font-size: 5vw;

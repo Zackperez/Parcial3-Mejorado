@@ -73,7 +73,7 @@ button {
     padding: 0.7vw 2.5vw;
     border-radius: 0.2vw;
     text-decoration: none;
-    color: var(--negro);
+    color: var(--blanco);
     background-color: var(--pink);
 }
 
@@ -146,9 +146,10 @@ button {
     color: var(--pink);
 }
 
-.menu__item--active a {
+.menu-contenedor .menu-lista .menu__item--active a {
     font-weight: bold;
-    border-bottom: 1px solid var(--blanco);
+    border-bottom: 1px solid var(--pink);
+    color: var(--pink);
 }
 
 /* CONTENIDO REDES */
