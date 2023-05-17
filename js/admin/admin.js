@@ -43,7 +43,17 @@ const Vista = {
   mostrarTickets: function(datos) {
     const tablaTickets = document.getElementById('tablaTickets');
     tablaTickets.innerHTML = ''; // Limpiar contenido existente
-
+    
+    // Crear la fila de encabezados
+    const encabezadoRow = document.createElement('tr');
+    for (const encabezado of Object.keys(datos[0])) {
+      const th = document.createElement('th');
+      th.textContent = encabezado;
+      encabezadoRow.appendChild(th);
+    }
+    tablaTickets.appendChild(encabezadoRow);
+    
+    // Crear las filas de datos
     datos.forEach(dato => {
       const fila = document.createElement('tr');
       for (const prop in dato) {
@@ -53,6 +63,7 @@ const Vista = {
       }
       tablaTickets.appendChild(fila);
     });
+  
   },
 
   mostrarMensajeError: function(mensaje) {
@@ -106,6 +117,12 @@ paginationContainer.appendChild(nextButton);
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  const cantidadDatosSelect = document.getElementById('cantidadDatos');
+  cantidadDatosSelect.addEventListener('change', function() {
+    Controlador.pageSize = parseInt(cantidadDatosSelect.value, 10);
+    Controlador.pageNumber = 1;
+    Controlador.obtenerTickets();
+  });
   Controlador.obtenerTickets();
 });
 
@@ -175,40 +192,39 @@ cerrarSesion.onclick = function (){
       })
 }
 
-// Obtiene una referencia al elemento de la tabla
-const tablaTickets = document.getElementById('tablaTickets');
+// // Obtiene una referencia al elemento de la tabla
+// const tablaTickets = document.getElementById('tablaTickets');
 
-// Define los encabezados de la tabla
-const encabezados = ['Título', 'Hora', 'Descripción', 'Usuario'];
+// // Define los encabezados de la tabla
+// const encabezados = ['Título', 'Hora', 'Descripción', 'Usuario'];
 
-// Define los datos de ejemplo
-const datos = [
-  {
-    titulo: 'Problema con...',
-    hora: '12:50am',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quo voluptatum labore asperiores, sed suscipit tempore totam iusto iste nulla!',
-    usuario: 'Jean Trujillo'
-  },
-  // Agrega más objetos de datos aquí
-];
+// // Define los datos de ejemplo
+// const datos = [
+//   {
+//     titulo: 'Problema con...',
+//     hora: '12:50am',
+//     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quo voluptatum labore asperiores, sed suscipit tempore totam iusto iste nulla!',
+//     usuario: 'Jean Trujillo'
+//   },
+//   // Agrega más objetos de datos aquí
+// ];
 
-// Crea la fila de encabezado
-const encabezadoRow = document.createElement('tr');
-encabezados.forEach(encabezado => {
-  const th = document.createElement('th');
-  th.textContent = encabezado;
-  encabezadoRow.appendChild(th);
-});
-tablaTickets.appendChild(encabezadoRow);
+// const encabezadoRow = document.createElement('tr');
+// encabezados.forEach(encabezado => {
+//   const th = document.createElement('th');
+//   th.textContent = encabezado;
+//   encabezadoRow.appendChild(th);
+// });
+// tablaTickets.appendChild(encabezadoRow);
 
-// Agrega los datos a la tabla
-datos.forEach(dato => {
-  const fila = document.createElement('tr');
-  for (const prop in dato) {
-    const celda = document.createElement('td');
-    celda.textContent = dato[prop];
-    fila.appendChild(celda);
-  }
-  tablaTickets.appendChild(fila);
-});
+// // Agrega los datos a la tabla
+// datos.forEach(dato => {
+//   const fila = document.createElement('tr');
+//   for (const prop in dato) {
+//     const celda = document.createElement('td');
+//     celda.textContent = dato[prop];
+//     fila.appendChild(celda);
+//   }
+//   tablaTickets.appendChild(fila);
+// });
 

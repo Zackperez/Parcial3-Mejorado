@@ -161,6 +161,7 @@ button{
   
   #tablaTickets th,
   #tablaTickets td {
+   
     padding: 8px;
     text-align: left;
   }
@@ -210,13 +211,15 @@ button{
   /* Estilo para los botones de paginación */
 .pagination-button {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 10px 18px;
     background-color: #f1f1f1;
     color: #333;
     text-decoration: none;
     border: 1px solid #ccc;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 20px;
+    border-radius: 10px;
   }
   
   .pagination-button:hover {
