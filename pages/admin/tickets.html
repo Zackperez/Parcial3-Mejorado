@@ -23,16 +23,38 @@
     
         <section class="pagina-principal">
             <div class="principal-grilla">
-                <div class="container-tabla">
-                    <table id="tablaTickets"></table>
-                    <div id="paginationContainer"></div>
-                    <label for="cantidadDatos">Mostrar:</label>
-                    <select id="cantidadDatos">
-                      <option value="3">5</option>
-                      <option value="10" selected>10</option>
-                      <option value="20">20</option>
-                      <option value="50">50</option>
-                    </select>
+                <div class="container">
+                    <div class="tabla-cantidad-datos">
+                        <label for="cantidadDatos">Mostrar:</label>
+                        <select id="cantidadDatos">
+                          <option value="3">5</option>
+                          <option value="10" selected>10</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="tabla-tickets">
+
+                        <div class="tabla__tickets">
+                            <table id="tablaTickets">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Modelo</th>
+                                        <th>Año</th>
+                                        <th>Kilometraje</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-principal-cuerpo">
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tabla-paginacion">
+                        <div id="paginationContainer" class="tabla__paginacion"></div>
+
+                    </div>
             </div>
         </section>
     

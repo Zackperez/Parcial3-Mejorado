@@ -85,12 +85,41 @@ button{
     margin-bottom: 5vh;
 }
 
-.principal-grilla{
+.container{
     display: grid;
     grid-template-areas: 
-    "titulo"
-    "tabla";
-    justify-content: center;
+    "btn_cantidad"
+    "tabla"
+    "paginacion";
+    border: 1px solid black;
+}
+
+.tabla-cantidad-datos{
+    grid-area: btn_cantidad;
+}
+
+.tabla-tickets{
+    grid-area: tabla;
+}
+
+.tabla-paginacion{
+    grid-area: paginacion;
+}
+
+.tabla-tickets .tabla__tickets{
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+}
+
+.tabla-tickets .tabla__tickets tr th{
+    padding: 0.3vw;
+    max-width: 5vw;
+    min-width: 3vw;
+}
+
+.tabla-tickets .tabla__tickets tr td{
+    word-wrap: break-word;
 }
 
 /* .tickets-grilla{
@@ -105,7 +134,7 @@ button{
 .tickets-grilla::-webkit-scrollbar {
     width: 10px;
     background-color:var(--pink);
-    /* Tamaño del scroll en horizontal */
+    /* Tamaño del scroll en horizontal 
 /* }
 
 .tickets-grilla::-webkit-scrollbar-thumb {
@@ -145,10 +174,12 @@ button{
 
 .ticket-hora{
     grid-area: hora;
-} */ */
+} */ 
 
 /*TABLA*/
-/* Estilo para la tabla */
+/* Estilo para la tabla 
+
+/*
 #tablaTickets{
     grid-area: tabla;
 }
@@ -161,7 +192,6 @@ button{
   
   #tablaTickets th,
   #tablaTickets td {
-   
     padding: 8px;
     text-align: left;
   }
@@ -175,7 +205,7 @@ button{
     background-color: #f9f9f9;
   }
   
-  /* Estilo para la paginación */
+  /* Estilo para la paginación 
   #paginationContainer {
     margin-top: 10px;
     display: flex;
@@ -208,7 +238,7 @@ button{
     color: #fff;
   }
   
-  /* Estilo para los botones de paginación */
+  /* Estilo para los botones de paginación 
 .pagination-button {
     display: inline-block;
     padding: 10px 18px;
@@ -231,7 +261,7 @@ button{
     color: #fff;
   }
   
-
+*/
 
 /* CONTENIDO REDES */
 
