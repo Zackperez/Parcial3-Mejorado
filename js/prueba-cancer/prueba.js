@@ -90,5 +90,25 @@ const Controlador = {
 const enviarDatos = document.getElementById('enviarDatos')
 
 enviarDatos.onclick = function(){
-  Controlador.enviarDatosPruebaUsuario();
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Puedes cancelar y confirmar los datos que vas a enviar.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, enviar datos',
+    cancelButtonText: 'No enviar datos'
+
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Enviados!',
+        '¡Tus datos han sido enviados!',
+        'success'
+      )
+      Controlador.enviarDatosPruebaUsuario();
+    }
+  })
+  
 }

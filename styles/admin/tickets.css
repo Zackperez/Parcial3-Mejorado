@@ -15,7 +15,8 @@ button {
         "menu"
         "pagina-principal"
         "footer";
-    grid-template-rows: auto 90vh auto;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
     
 }
 
@@ -79,8 +80,8 @@ button {
 
 /* CONTENIDO PRINCIPAL */
 .principal-grilla {
-    height: 60vh;
-    overflow-x: auto;
+    height: 70vh;
+    width: 80vw;
 }
 
 .pagina-principal {
@@ -94,11 +95,10 @@ button {
 .container {
     display: grid;
     grid-template-areas:
-        "btn_cantidad "
+        "btn_cantidad"
         "btn_busqueda"
         "tabla"
         "paginacion";
-    
 }
 
 .tabla-cantidad-datos {
@@ -114,6 +114,8 @@ button {
 }
 .tabla-tickets {
     grid-area: tabla;
+    overflow-x: auto;
+
 }
 
 .tabla-paginacion {
