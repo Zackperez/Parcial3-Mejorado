@@ -1,10 +1,10 @@
 @import url(../global/global.css);
 
-a{
+a {
     cursor: pointer;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 }
@@ -16,6 +16,7 @@ button{
         "pagina-principal"
         "footer";
     grid-template-rows: auto 90vh auto;
+    
 }
 
 .menu {
@@ -66,7 +67,7 @@ button{
     color: var(--blanco);
 }
 
-.menu-contenedor .menu-lista .menu__item a:hover{
+.menu-contenedor .menu-lista .menu__item a:hover {
     color: var(--pink);
 }
 
@@ -77,7 +78,12 @@ button{
 }
 
 /* CONTENIDO PRINCIPAL */
-.pagina-principal{
+.principal-grilla {
+    height: 60vh;
+    overflow-x: auto;
+}
+
+.pagina-principal {
     grid-area: pagina-principal;
     margin-top: 5vh;
     margin-right: 10vw;
@@ -85,41 +91,52 @@ button{
     margin-bottom: 5vh;
 }
 
-.container{
+.container {
     display: grid;
-    grid-template-areas: 
-    "btn_cantidad"
-    "tabla"
-    "paginacion";
-    border: 1px solid black;
+    grid-template-areas:
+        "btn_cantidad "
+        "btn_busqueda"
+        "tabla"
+        "paginacion";
+    
 }
 
-.tabla-cantidad-datos{
+.tabla-cantidad-datos {
     grid-area: btn_cantidad;
-}
+    margin: 10px 15px;
+    font-weight: bold;
 
-.tabla-tickets{
+}
+.boton-busqueda{
+    grid-area: btn_busqueda;
+    margin: 10px 15px;
+    font-weight: bold;
+}
+.tabla-tickets {
     grid-area: tabla;
 }
 
-.tabla-paginacion{
+.tabla-paginacion {
+
     grid-area: paginacion;
+    display: grid;
+    place-content: center;
 }
 
-.tabla-tickets .tabla__tickets{
+.tabla-tickets .tabla__tickets {
     border-collapse: collapse;
     border: 1px solid #ccc;
     font-family: Arial, sans-serif;
 }
 
-.tabla-tickets .tabla__tickets tr th{
+.tabla-tickets .tabla__tickets tr th {
     padding: 0.3vw;
     max-width: 5vw;
     min-width: 3vw;
 }
 
-.tabla-tickets .tabla__tickets tr td{
-    word-wrap: break-word;
+.tabla-tickets .tabla__tickets tr td {
+    word-wrap:break-word;
 }
 
 /* .tickets-grilla{
@@ -174,78 +191,79 @@ button{
 
 .ticket-hora{
     grid-area: hora;
-} */ 
+} */
 
 /*TABLA*/
-/* Estilo para la tabla 
+/* Estilo para la tabla */
+#idInput{
+    margin: 10px;
+    padding:10px;
+    border-radius: 10px;
+    width: 40px;
+}
+#buscarButton{
+    padding: 10px 18px;
+    background-color: #69afff;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #69afff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px;
+    border-radius: 10px;
+    font-weight: bold;
 
-/*
+}
+#buscarButton:hover{
+    background-color: white;
+}
+#cantidadDatos{
+    border: 1px solid #69afff;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 6px;
+}
+
+
 #tablaTickets{
     grid-area: tabla;
+    
+   
 }
 #tablaTickets {
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
+    border-collapse: collapse ;
+    border: 1px solid #69afff;
     font-family: Arial, sans-serif;
+    
+    
   }
   
   #tablaTickets th,
   #tablaTickets td {
     padding: 8px;
-    text-align: left;
+    text-align: justify;
+    
   }
   
   #tablaTickets th {
-    background-color: #f2f2f2;
+    background-color: #69afff;
     font-weight: bold;
+    text-transform: capitalize;
   }
-  
+    
   #tablaTickets tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
-  /* Estilo para la paginación 
-  #paginationContainer {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #paginationContainer .pagination {
-    display: inline-flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #paginationContainer .pagination li {
-    margin: 0 5px;
-  }
-  
-  #paginationContainer .pagination li a {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #f2f2f2;
-    color: #333;
-    text-decoration: none;
-    border-radius: 3px;
-  }
-  
-  #paginationContainer .pagination li a.active {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  /* Estilo para los botones de paginación 
+   
+  /* Estilo para los botones de paginación */
 .pagination-button {
     display: inline-block;
     padding: 10px 18px;
-    background-color: #f1f1f1;
+    background-color: #69afff;
     color: #333;
     text-decoration: none;
-    border: 1px solid #ccc;
+    border: 1px solid #69afff;
     cursor: pointer;
     transition: background-color 0.3s;
     margin: 20px;
@@ -261,7 +279,7 @@ button{
     color: #fff;
   }
   
-*/
+
 
 /* CONTENIDO REDES */
 

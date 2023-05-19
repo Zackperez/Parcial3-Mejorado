@@ -2,7 +2,7 @@ import config from '../supabase/keys.js';
 
 const Controlador = {
   pageNumber: 1, // Página actual
-  pageSize: 10, // Cantidad de elementos por página
+  pageSize: 5, // Cantidad de elementos por página
 
   obtenerTickets: function() {
     const url = `https://mmphzayxvvhdtrtcvjsq.supabase.co/rest/v1/tickets?select=*&limit=${Controlador.pageSize}&offset=${(Controlador.pageNumber - 1) * Controlador.pageSize}`;
@@ -21,6 +21,30 @@ const Controlador = {
         console.log(error);
         Vista.mostrarMensajeError(error);
       });
+  },
+
+  buscarPorId: function() {
+    const idInput = document.getElementById('idInput');
+    const id = idInput.value.trim();
+
+    if (id !== '') {
+      const url = `https://mmphzayxvvhdtrtcvjsq.supabase.co/rest/v1/tickets?id=eq.${id}`;
+
+      axios({
+        method: 'GET',
+        url: url,
+        headers: config.headers,
+      })
+        .then(function(response) {
+          Vista.mostrarTickets(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+          Vista.mostrarMensajeError(error);
+        });
+    } else {
+      Controlador.obtenerTickets();
+    }
   },
 
   irAPagina: function(page) {
@@ -103,16 +127,16 @@ const Vista = {
       paginationContainer.appendChild(listItem);
     }
 
-   const nextButton = document.createElement('button');
-nextButton.classList.add('pagination-button');
-nextButton.textContent = 'Siguiente';
-nextButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  Controlador.irAPaginaSiguiente();
-});
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('pagination-button');
+    nextButton.textContent = 'Siguiente';
+    nextButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      Controlador.irAPaginaSiguiente();
+    });
     
-paginationContainer.appendChild(previousButton);
-paginationContainer.appendChild(nextButton);
+    paginationContainer.appendChild(previousButton);
+    paginationContainer.appendChild(nextButton);
   },
 };
 
@@ -123,6 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
     Controlador.pageNumber = 1;
     Controlador.obtenerTickets();
   });
+
+  const buscarButton = document.getElementById('buscarButton');
+  buscarButton.addEventListener('click', function() {
+    Controlador.buscarPorId();
+  });
+
   Controlador.obtenerTickets();
 });
 
@@ -192,39 +222,5 @@ cerrarSesion.onclick = function (){
       })
 }
 
-// // Obtiene una referencia al elemento de la tabla
-// const tablaTickets = document.getElementById('tablaTickets');
 
-// // Define los encabezados de la tabla
-// const encabezados = ['Título', 'Hora', 'Descripción', 'Usuario'];
-
-// // Define los datos de ejemplo
-// const datos = [
-//   {
-//     titulo: 'Problema con...',
-//     hora: '12:50am',
-//     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quo voluptatum labore asperiores, sed suscipit tempore totam iusto iste nulla!',
-//     usuario: 'Jean Trujillo'
-//   },
-//   // Agrega más objetos de datos aquí
-// ];
-
-// const encabezadoRow = document.createElement('tr');
-// encabezados.forEach(encabezado => {
-//   const th = document.createElement('th');
-//   th.textContent = encabezado;
-//   encabezadoRow.appendChild(th);
-// });
-// tablaTickets.appendChild(encabezadoRow);
-
-// // Agrega los datos a la tabla
-// datos.forEach(dato => {
-//   const fila = document.createElement('tr');
-//   for (const prop in dato) {
-//     const celda = document.createElement('td');
-//     celda.textContent = dato[prop];
-//     fila.appendChild(celda);
-//   }
-//   tablaTickets.appendChild(fila);
-// });
 
