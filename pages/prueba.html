@@ -23,8 +23,8 @@
         <section class="pagina-principal">
             <div class="principal-grilla">
                 <div class="container">
-                    <div class="izquierda">
-                        <div class="izquierda-grilla">
+                    <div class="izquierda" id="exportPDF">
+                        <div class="izquierda-grilla" id="izquierdaGrilla">
                             <div class="combobox">
                                 <h3>Edad</h3>
                                 <select name="cars" id="edad">
@@ -123,16 +123,9 @@
                         </div>
                         <div class="boton">
                             <button id="enviarDatos">Enviar datos</button>
-    
+                            <button id="exportarPDF">Exportar a PDF</button>
                         </div>
                     </div>
-
-                    <div class="derecha">
-                        <div class="derecha-grilla">
-
-                        </div>
-                    </div>
-                    
                 </div>
 
 
@@ -140,7 +133,7 @@
         </section>
 
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/prueba-cancer/prueba.js" type="module"></script>

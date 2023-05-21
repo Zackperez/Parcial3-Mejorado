@@ -78,12 +78,6 @@ button {
     color: var(--pink);
 }
 
-/* CONTENIDO PRINCIPAL */
-.principal-grilla {
-    height: 70vh;
-    width: 80vw;
-}
-
 .pagina-principal {
     grid-area: pagina-principal;
     margin-top: 5vh;
@@ -95,10 +89,9 @@ button {
 .container {
     display: grid;
     grid-template-areas:
-        "btn_cantidad"
-        "btn_busqueda"
-        "tabla"
-        "paginacion";
+        "btn_cantidad btn_busqueda"
+        "tabla tabla"
+        "paginacion paginacion";
 }
 
 .tabla-cantidad-datos {
@@ -129,6 +122,7 @@ button {
     border-collapse: collapse;
     border: 1px solid #ccc;
     font-family: Arial, sans-serif;
+    height: 60vh;
 }
 
 .tabla-tickets .tabla__tickets tr th {
@@ -141,89 +135,31 @@ button {
     word-wrap:break-word;
 }
 
-/* .tickets-grilla{
-    height: 65vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: grid;
-    row-gap: 2vh;
-    width: 65vw;
-}
-
-.tickets-grilla::-webkit-scrollbar {
-    width: 10px;
-    background-color:var(--pink);
-    /* Tamaño del scroll en horizontal 
-/* }
-
-.tickets-grilla::-webkit-scrollbar-thumb {
-    background-color: #191919;
-}
-
-.ticket{
-    display: grid;
-    grid-template-areas: 
-    "titulo hora"
-    "descripcion descripcion"
-    "usuario usuario";
-    background-color: rgb(255, 255, 255);
-    border-radius: 0.5vw;
-    width: auto;
-    height: 20vh;
-    padding: 1vw 2vw;
-    color: var(--negro);
-    align-items: center;
-}
-
-.ticket-titulo{
-    grid-area: titulo;
-    text-align: start;
-}
-
-.ticket-hora{
-    display: grid;
-    justify-content: end;
-    grid-area: hora;
-}
-
-.ticket-descripcion{
-    width: 60vw;
-    grid-area: descripcion;
-}
-
-.ticket-hora{
-    grid-area: hora;
-} */
-
 /*TABLA*/
 /* Estilo para la tabla */
 #idInput{
-    margin: 10px;
-    padding:10px;
-    border-radius: 10px;
-    width: 40px;
+    padding: 0.7vw 0.5vw;
+    border-radius: 0.5vw;
+    width: 2vw;
 }
 #buscarButton{
-    padding: 10px 18px;
-    background-color: #69afff;
+    padding: 0.7vw 2vw;
+    background-color: var(--pink);
     color: #333;
     text-decoration: none;
-    border: 1px solid #69afff;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 20px;
-    border-radius: 10px;
+    border-radius: 0.5vw;
     font-weight: bold;
 
 }
 #buscarButton:hover{
-    background-color: white;
+    background-color: var(--pink);
 }
 #cantidadDatos{
-    border: 1px solid #69afff;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 6px;
+    border: 1px solid var(--pink);
+    border-radius: 0.5vw;
+    padding: 0.7vw 2vw;
 }
 
 
@@ -235,21 +171,17 @@ button {
 #tablaTickets {
     width: 100%;
     border-collapse: collapse ;
-    border: 1px solid #69afff;
     font-family: Arial, sans-serif;
-    
     
   }
   
   #tablaTickets th,
   #tablaTickets td {
-    padding: 8px;
-    text-align: justify;
-    
+    padding: 0.5vw;    
   }
   
   #tablaTickets th {
-    background-color: #69afff;
+    background-color: var(--pink);
     font-weight: bold;
     text-transform: capitalize;
   }
@@ -262,10 +194,10 @@ button {
 .pagination-button {
     display: inline-block;
     padding: 10px 18px;
-    background-color: #69afff;
+    background-color: var(--pink);
     color: #333;
     text-decoration: none;
-    border: 1px solid #69afff;
+    border: 1px solid var(--pink);
     cursor: pointer;
     transition: background-color 0.3s;
     margin: 20px;

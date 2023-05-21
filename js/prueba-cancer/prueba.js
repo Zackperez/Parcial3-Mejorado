@@ -1,18 +1,18 @@
 //Modelo que recibe los datos y los envia a la base de datos
 const Modelo = {
   //función asíncrona que recibe la data a enviar
-  async enviarDatosPruebaUsuario( edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat ) {
+  async enviarDatosPruebaUsuario(edad, menopausia, tumorTamaño, invNodes, nodesCaps, gradoTumor, breast, breastQuead, irradiat) {
     //se guarda en un objeto para luego ser enviado como data en AXIOS
     const datos_insertar = {
-      edad : parseInt(edad),
-      menopausia : parseInt(menopausia),
-      tumorTamaño : parseInt(tumorTamaño),
-      invNodes : parseInt(invNodes),
-      nodesCaps : parseInt(nodesCaps),
-      gradoTumor : parseInt(gradoTumor),
-      breast : parseInt(breast),
-      breastQuead : parseInt(breastQuead),
-      irradiat : parseInt(irradiat)
+      edad: parseInt(edad),
+      menopausia: parseInt(menopausia),
+      tumorTamaño: parseInt(tumorTamaño),
+      invNodes: parseInt(invNodes),
+      nodesCaps: parseInt(nodesCaps),
+      gradoTumor: parseInt(gradoTumor),
+      breast: parseInt(breast),
+      breastQuead: parseInt(breastQuead),
+      irradiat: parseInt(irradiat)
     }
 
     //se almacena la respuesta en "res" para obtener el resultado de la petición y retornarla para mostrar en la vista
@@ -45,11 +45,19 @@ const Vista = {
     console.log(mensaje);
   },
 
-  mostrarResultadoPrueba(mensaje) {
-    console.log(mensaje);
+  mostrarResultadoPrueba(mensaje, precision) {
+    const izquierdaGrilla = document.getElementById('izquierdaGrilla');
+    const album = document.createElement('div');
+    album.innerHTML = `
+      <h1>Resultados de la prueba: ${mensaje}</h1>
+      <h2>Precision del algoritmo: ${precision}</h2>
+    `;
+
+    izquierdaGrilla.appendChild(album);
+
   },
 
-  mostrarAlertaSatisfactorio(mensaje){
+  mostrarAlertaSatisfactorio(mensaje) {
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -57,9 +65,14 @@ const Vista = {
       showConfirmButton: false,
       timer: 1500
     })
-  }
+  },
 
+
+  mostrarMensajeError(mensaje) {
+    console.log(mensaje)
+  }
 }
+
 
 const Controlador = {
   async enviarDatosPruebaUsuario() {
@@ -71,13 +84,14 @@ const Controlador = {
       //dentro de "res" se almacena el resultado de AXIOS.
       //Si el status en correcto, se muestra un alert
       console.log(res)
-      if(res.status == "200"){
-        if (res.data.resultado_prueba == "0"){
-          let mensaje = "Resultados de la prueba: No hay eventos recurrentes."
-          Vista.mostrarResultadoPrueba(mensaje)
-        }else{
-          let mensaje = "Resultados de la prueba: Hay eventos recurrentes."
-          Vista.mostrarResultadoPrueba(mensaje)
+      if (res.status == "200") {
+        let precision = res.data.precision;
+        if (res.data.resultado_prueba == "0") {
+          let mensaje = "No hay eventos recurrentes."
+          Vista.mostrarResultadoPrueba(mensaje, precision)
+        } else {
+          let mensaje = "Hay eventos recurrentes."
+          Vista.mostrarResultadoPrueba(mensaje, precision)
         }
       }
       //Caso contrario, mostrará un mensaje de error que se envia a la vista para mostrarla
@@ -89,7 +103,7 @@ const Controlador = {
 
 const enviarDatos = document.getElementById('enviarDatos')
 
-enviarDatos.onclick = function(){
+enviarDatos.onclick = function () {
   Swal.fire({
     title: '¿Estás seguro?',
     text: "Puedes cancelar y confirmar los datos que vas a enviar.",
@@ -110,5 +124,23 @@ enviarDatos.onclick = function(){
       Controlador.enviarDatosPruebaUsuario();
     }
   })
-  
+
+}
+
+const exportarPDF = document.getElementById('exportarPDF');
+
+exportarPDF.onclick = function () {
+  // Selecciona el elemento que deseas exportar a PDF
+  var elemento = document.querySelector('.container');
+
+  // Configura las opciones de exportación
+  var opciones = {
+    margin: [10, 10, 10, 10], // Márgenes en píxeles
+    filename: 'resultados_prueba_cancer.pdf', // Nombre del archivo PDF resultante
+    html2canvas: { scale: 2 }, // Configuración de html2canvas (opcional)
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // Configuración de jsPDF (opcional)
+  };
+
+  // Ejecuta la función html2pdf para generar el PDF
+  html2pdf().set(opciones).from(elemento).save();
 }
