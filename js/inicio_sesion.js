@@ -58,13 +58,13 @@ const Controlador = {
         Vista.limpiarCampos();
       }
 
-    } catch(err) {
-    Vista.mostrarMensajeError('Error al iniciar sesión');
-    console.log(err);
+    } catch (err) {
+      Vista.mostrarMensajeError('Error al iniciar sesión');
+      console.log(err);
 
-    Vista.limpiarCampos();
+      Vista.limpiarCampos();
+    }
   }
-}
 }
 
 
@@ -72,4 +72,10 @@ const botonIniciarSesion = document.getElementById('botonIniciarSesion');
 
 botonIniciarSesion.onclick = function () {
   Controlador.iniciarSesion()
+}
+
+const botonRetroceder = document.getElementById('botonRetroceder');
+
+botonRetroceder.onclick = function () {
+  location.href = ('../index.html')
 }

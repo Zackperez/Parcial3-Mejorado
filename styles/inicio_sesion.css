@@ -9,6 +9,7 @@ body {
     justify-content: center;
     grid-template-rows: 100vh;
     align-items: center;
+    background-color: beige;
 }
 
 .contenedor-formulario {
@@ -22,7 +23,7 @@ body {
     justify-content: center;
     text-align: center;
     background-color: var(--negro);
-    padding: 5vw;
+    padding: 3vw;
     border-radius: 3%;
 
 }
@@ -59,8 +60,12 @@ body {
 }
 
 .formulario-boton {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    justify-items: center;
     grid-area: boton;
-    text-align: center;
+    align-items: center;
 }
 
 .formulario-boton .formulario__boton {
@@ -69,6 +74,8 @@ body {
     border: transparent;
     background-color: var(--pink);
     border-radius: 0.5vw;
+    cursor: pointer;
+
 }
 
 .formulario-boton .formulario__boton a {
