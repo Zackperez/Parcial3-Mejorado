@@ -8,6 +8,7 @@ const Controlador = {
             headers: config.headers
         })
             .then(function (response) {
+
                 // Objeto para almacenar el conteo de repeticiones
                 const ageCount = {};
 
@@ -78,7 +79,6 @@ const Controlador = {
                         menopauseCount[menopause] = 1;
                     }
                 });
-
 
                 Vista.mostrarRegistrosTablas3(menopauseCount);
             })
@@ -164,9 +164,6 @@ const Controlador = {
                     const malignancyIndex = malignancyGrades.indexOf(item.deg_malig);
                     frequencies[ageIndex][malignancyIndex]++;
                 });
-                console.log(ageGroups)
-                console.log(malignancyGrades)
-                console.log(frequencies)
 
                 // Crear una matriz de colores para las barras
 
@@ -233,6 +230,7 @@ const Vista = {
 
         const labels = Object.keys(data);
         const values = Object.values(data);
+
 
         // Paso 4: Configurar y renderizar la gráfica
         const canvas = document.getElementById('myChart2');
@@ -377,9 +375,9 @@ const Vista = {
 
     mostrarRegistrosTablas5: function (data) {
 
-        const labels = Object.keys(data);
+        let labels = Object.keys(data);
         const values = Object.values(data);
-
+        console.log(data)
         // Paso 4: Configurar y renderizar la gráfica
         const canvas = document.getElementById('myChart5');
         const chart = new Chart(canvas, {

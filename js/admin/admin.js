@@ -380,8 +380,8 @@ const Vista = {
     }
 
     const rangos_nodesCaps = {
-      0: "No",
-      1: "Si"
+      0: "no",
+      1: "si"
     }
 
 
@@ -392,21 +392,21 @@ const Vista = {
     }
 
     const rangos_breast = {
-      0: "Izquierda",
-      1: "Derecha"
+      0: "left",
+      1: "right"
     }
 
     const rangos_breastQuead = {
       0: "central",
-      1: "inferior izquierda",
-      2: "superior izquierda",
-      3: "inferior derecha",
-      4: "superior izquierda"
+      1: "left_low",
+      2: "left_up",
+      3: "right_low ",
+      4: "right_up"
     }
 
     const rangos_irradiat = {
-      0: "No",
-      1: "Si"
+      0: "no",
+      1: "yes"
     }
 
     const rangos_clase = {
