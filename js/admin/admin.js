@@ -84,7 +84,6 @@ const Controlador = {
     try {
       const response = await Modelo.buscarTicketPorId(idTicketBuscar);
       Vista.mostrarTickets(response.data);
-      Vista.limpiarCampoBuscarTicket();
     } catch (err) {
       console.log(err);
       Vista.mostrarMensajeError(err);
@@ -110,7 +109,7 @@ const Controlador = {
     const { events_recurrence, age, menopause, tumor_size, inv_nodes, node_caps, deg_malig, breast, breast_quead, irradiat } = Vista.getDatosInsertarCSV();
     try {
       const res = await Modelo.insertarDatosCSV(events_recurrence, age, menopause, tumor_size, inv_nodes, node_caps, deg_malig, breast, breast_quead, irradiat);
-      console.log(res)
+      Vista.mostrarAlertaSatisfactorio("Datos insertados correctamente");
     } catch (err) {
       Vista.mostrarMensajeError(err);
     }
@@ -607,7 +606,6 @@ enviarDatosCSV.onclick = function () {
   }).then((result) => {
     if (result.isConfirmed) {
       Controlador.insertarDatosCSV();
-
     }
   })
 }
